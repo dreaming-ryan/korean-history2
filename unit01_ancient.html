@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고대국가 핵심 키워드 빈출표</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f9f6ef;
+    --paper2: #f1ece0;
+    --paper3: #e8e0ce;
+    --ink: #1c160c;
+    --ink2: #3a3020;
+    --ink3: #7c6e55;
+    --ink4: #b0a080;
+    --red: #9b2828;
+    --red2: #c94040;
+    --amber: #b87820;
+    --amber2: #d4a030;
+    --teal: #1a6060;
+    --teal2: #2a8070;
+    --sage: #3a6040;
+    --navy: #1c2c50;
+    --navy2: #2a4070;
+    --border: #d0c4aa;
+    --border2: #e4dac8;
+    --shadow: rgba(28, 22, 12, 0.10);
+    --shadow2: rgba(28, 22, 12, 0.05);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at 15% 10%, rgba(184,120,32,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 85% 90%, rgba(26,96,96,0.05) 0%, transparent 60%);
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 48px 20px 72px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    max-width: 1120px;
+    margin: 0 auto 36px;
+    position: relative;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .header-left {}
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .eyebrow-dot {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+
+  .eyebrow-text {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  h1 {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--red);
+    border-bottom: 2.5px solid var(--amber2);
+  }
+
+  .header-sub {
+    margin-top: 7px;
+    font-size: 12.5px;
+    color: var(--ink3);
+    font-weight: 400;
+    letter-spacing: 0.2px;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 4px;
+  }
+
+  .chip {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px var(--shadow2);
+  }
+
+  .chip-num {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--red);
+    display: block;
+    line-height: 1;
+  }
+
+  .chip-label {
+    font-size: 10.5px;
+    color: var(--ink3);
+    margin-top: 3px;
+    white-space: nowrap;
+  }
+
+  .legend {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    align-items: center;
+  }
+
+  .legend-title {
+    font-size: 11px;
+    color: var(--ink4);
+    font-weight: 500;
+    margin-right: 2px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--ink3);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── TABLE CARD ── */
+  .card {
+    max-width: 1120px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 3px var(--shadow2),
+      0 8px 32px var(--shadow);
+  }
+
+  .card-top-stripe {
+    height: 4px;
+    background: linear-gradient(90deg,
+      var(--red) 0%, var(--red2) 20%,
+      var(--amber) 40%, var(--amber2) 55%,
+      var(--teal) 75%, var(--teal2) 100%);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead tr {
+    background: linear-gradient(180deg, #22180a 0%, #1a1208 100%);
+  }
+
+  thead th {
+    padding: 13px 14px;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #d8cbb0;
+    letter-spacing: 0.8px;
+    text-align: left;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  thead th:last-child { border-right: none; }
+  thead th.tc { text-align: center; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border2);
+    transition: background 0.12s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--paper2); }
+  tbody tr:hover { background: #ede4d0; }
+
+  td {
+    padding: 11px 14px;
+    font-size: 13px;
+    vertical-align: middle;
+    border-right: 1px solid var(--border2);
+  }
+
+  td:last-child { border-right: none; }
+
+  /* ── RANK ── */
+  .col-rank {
+    width: 52px;
+    min-width: 52px;
+    text-align: center;
+  }
+
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  }
+
+  .rank-1  { background: #f5e6a8; color: #7a5800; border: 1.5px solid #c8a030; }
+  .rank-2  { background: #e8e8e8; color: #505050; border: 1.5px solid #a8a8a8; }
+  .rank-3  { background: #f5d8b8; color: #7a3a08; border: 1.5px solid #c07840; }
+  .rank-default { background: transparent; color: var(--ink3); border: 1px solid var(--border); font-size: 11px; }
+
+  /* ── CHOICE ── */
+  .col-choice {
+    min-width: 280px;
+    max-width: 400px;
+    line-height: 1.65;
+    color: var(--ink2);
+    font-size: 12.5px;
+  }
+
+  .choice-main { display: block; }
+
+  .choice-desc {
+    display: block;
+    font-size: 11.5px;
+    color: var(--ink3);
+    line-height: 1.6;
+    margin-top: 6px;
+    padding: 5px 8px;
+    background: var(--paper2);
+    border-left: 2.5px solid var(--border);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ── KEYWORD TAG ── */
+  .col-kw {
+    width: 120px;
+    min-width: 100px;
+  }
+
+  .kw-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    white-space: nowrap;
+    letter-spacing: 0.2px;
+  }
+
+  /* ── ANSWER TAG ── */
+  .col-ans {
+    width: 140px;
+    min-width: 120px;
+  }
+
+  .ans-tag {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* 고대국가 정답 색상 */
+  .ans-paleolithic { background: #ede0d0; color: #4a2c10; border: 1px solid #c8a880; }
+  .ans-neolithic   { background: #d8f0e8; color: #1a5038; border: 1px solid #80c8a8; }
+  .ans-bronze      { background: #f8e8c0; color: #6a4a00; border: 1px solid #d8b840; }
+  .ans-iron        { background: #e0e8f0; color: #1a2850; border: 1px solid #8098c0; }
+  .ans-gojoseon    { background: #f0e0e8; color: #680830; border: 1px solid #d090a8; }
+  .ans-buyeo       { background: #e8e0f8; color: #401868; border: 1px solid #b090d8; }
+  .ans-okjeo       { background: #d8f0f8; color: #0a4058; border: 1px solid #70b8d8; }
+  .ans-dongye      { background: #e8f0d8; color: #284808; border: 1px solid #90b870; }
+  .ans-samhan      { background: #f8e8e8; color: #681818; border: 1px solid #d89898; }
+  .ans-goguryeo    { background: #e0f0e8; color: #1a5030; border: 1px solid #90c8a8; }
+  .ans-other       { background: #eeeeee; color: #404040; border: 1px solid #cccccc; }
+
+  /* ── BAR ── */
+  .col-bar {
+    min-width: 180px;
+    width: 210px;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .bar-num {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    min-width: 22px;
+    text-align: right;
+    color: var(--red);
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 9px;
+    background: var(--paper2);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .bt1 { background: linear-gradient(90deg, #9b2828, #c94040); }
+  .bt2 { background: linear-gradient(90deg, #b86020, #d89040); }
+  .bt3 { background: linear-gradient(90deg, #c0981a, #d8b840); }
+  .bt4 { background: linear-gradient(90deg, #2a7a50, #48a870); }
+  .bt5 { background: linear-gradient(90deg, #1a6080, #3090b0); }
+
+  /* ── FOOTER ── */
+  .footer {
+    max-width: 1120px;
+    margin: 22px auto 0;
+    font-size: 11px;
+    color: var(--ink4);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ── MOBILE CARD LIST ── */
+  .mobile-list { display: none; }
+
+  .m-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow2);
+    margin-bottom: 12px;
+  }
+
+  .m-card-stripe { height: 4px; }
+
+  .m-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 8px;
+  }
+
+  .m-card-body {
+    padding: 0 14px 14px;
+  }
+
+  .m-choice-main {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink2);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .m-choice-desc {
+    display: block;
+    font-size: 12px;
+    color: var(--ink3);
+    line-height: 1.65;
+    padding: 7px 10px;
+    background: var(--paper2);
+    border-left: 2.5px solid var(--border);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 10px;
+  }
+
+  .m-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .m-tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+  .m-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+
+  .m-bar-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    min-width: 18px;
+    text-align: right;
+  }
+
+  .m-bar-track {
+    width: 80px;
+    height: 8px;
+    background: var(--paper2);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .m-bar-fill { height: 100%; border-radius: 5px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    body { padding: 28px 14px 60px; font-size: 13px; }
+
+    h1 { font-size: 22px; }
+
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+    .header-right { gap: 8px; }
+    .chip { padding: 6px 12px; }
+    .chip-num { font-size: 16px; }
+
+    .legend { gap: 8px; margin-top: 12px; }
+    .legend-item { font-size: 10.5px; }
+
+    /* 테이블 숨기고 카드 리스트 표시 */
+    .card { display: none; }
+    .mobile-list { display: block; max-width: 1120px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="eyebrow">
+        <div class="eyebrow-dot"></div>
+        <span class="eyebrow-text">한국사능력검정시험 대비 학습자료</span>
+      </div>
+      <h1>고대국가 <em>핵심 키워드</em> 빈출 선택지</h1>
+      <p class="header-sub">실제 기출 선택지 분석 · 핵심 키워드 빈도 기준 상위 32개 항목</p>
+    </div>
+    <div class="header-right">
+      <div class="chip"><span class="chip-num">281</span><div class="chip-label">총 기출 선택지</div></div>
+      <div class="chip"><span class="chip-num">32</span><div class="chip-label">핵심 키워드</div></div>
+      <div class="chip"><span class="chip-num">21</span><div class="chip-label">최고 출제횟수</div></div>
+    </div>
+  </div>
+  <div class="legend">
+    <span class="legend-title">정답 구분 →</span>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a2c10;border:1px solid #c8a880"></div>구석기</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a5038;border:1px solid #80c8a8"></div>신석기</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6a4a00;border:1px solid #d8b840"></div>청동기</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a2850;border:1px solid #8098c0"></div>철기</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#680830;border:1px solid #d090a8"></div>고조선</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#401868;border:1px solid #b090d8"></div>부여</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#0a4058;border:1px solid #70b8d8"></div>옥저</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#284808;border:1px solid #90b870"></div>동예</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#681818;border:1px solid #d89898"></div>삼한</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a5030;border:1px solid #90c8a8"></div>고구려</div>
+  </div>
+</header>
+
+<div class="card">
+  <div class="card-top-stripe"></div>
+  <table>
+    <thead>
+      <tr>
+        <th class="tc">순위</th>
+        <th>대표 선택지</th>
+        <th>핵심 키워드</th>
+        <th>정답</th>
+        <th>출제횟수</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="mobile-list" id="mobileList"></div>
+
+<footer class="footer">
+  <span>출처 : 한국사능력검정시험 기출문제 &nbsp;|&nbsp; 총 281개 선택지 · 핵심 키워드 분석</span>
+  <span>빈도 기준 내림차순 정렬 (1위 = 최다 출제)</span>
+</footer>
+
+<script>
+const MAX = 21;
+
+const rows = [
+  { r:1,  cnt:21, kw:"막집",         ans:"구석기",    ansType:"paleolithic",
+    c1:"주로 동굴이나 강가의 막집에 거주하였다.",
+    desc:"구석기 시대 사람들은 이동 생활을 하며 자연 동굴이나 강가에 막집을 짓고 살았으며, 불을 사용하고 사냥·채집으로 먹이를 구하였다." },
+  { r:2,  cnt:20, kw:"고인돌",        ans:"청동기",    ansType:"bronze",
+    c1:"많은 인력을 동원하여 고인돌을 축조하였다.",
+    desc:"청동기 시대 지배층의 무덤인 고인돌은 거대한 돌을 운반하기 위해 많은 노동력이 필요했으며, 계급 사회의 성립을 보여 준다." },
+  { r:3,  cnt:18, kw:"사출도",        ans:"부여",      ansType:"buyeo",
+    c1:"여러 가(加)들이 별도로 사출도를 주관하였다.",
+    desc:"부여의 마가·우가·저가·구가 등 여러 가(加)들은 각자의 구역인 사출도를 독자적으로 다스렸으며, 왕권이 상대적으로 약하였다." },
+  { r:4,  cnt:18, kw:"소도",          ans:"삼한",      ansType:"samhan",
+    c1:"신성 구역인 소도가 존재하였다.",
+    desc:"삼한의 소도는 제사장인 천군이 관할하는 신성 구역으로, 죄인이 도망쳐도 군장이 잡아갈 수 없는 독특한 풍습이 있었다." },
+  { r:5,  cnt:16, kw:"가락바퀴",      ans:"신석기",    ansType:"neolithic",
+    c1:"가락바퀴와 뼈바늘을 이용하여 옷을 만들기 시작하였다.",
+    desc:"신석기 시대에 가락바퀴로 실을 뽑고 뼈바늘로 꿰매어 옷을 만들기 시작하였으며, 이는 원시적 섬유 제작 기술의 시작을 의미한다." },
+  { r:6,  cnt:14, kw:"뗀석기",        ans:"구석기",    ansType:"paleolithic",
+    c1:"주먹도끼, 찍개 등의 뗀석기를 처음 제작하였다.",
+    desc:"구석기 시대에는 돌을 깨뜨려 만든 뗀석기를 도구로 사용하였으며, 대표 유물로 주먹도끼·찍개가 있고 연천 전곡리 유적이 대표적이다." },
+  { r:7,  cnt:14, kw:"범금 8조",      ans:"고조선",    ansType:"gojoseon",
+    c1:"사회 질서를 유지하기 위해 범금 8조를 만들었다.",
+    desc:"고조선의 범금 8조는 생명·재산·신체를 보호하는 법률로, 살인·상해·절도 등을 규율하였으며 사유재산 보호와 계급 사회임을 보여 준다." },
+  { r:8,  cnt:13, kw:"책화",          ans:"동예",      ansType:"dongye",
+    c1:"읍락 간의 경계를 함부로 침범하지 않는 습속인 책화가 있었다.",
+    desc:"동예의 책화는 다른 읍락의 경계를 침범하면 노비·소·말로 변상하게 하는 풍속으로, 각 읍락이 폐쇄적으로 독립하였음을 보여 준다." },
+  { r:9,  cnt:11, kw:"명도전",        ans:"철기",      ansType:"iron",
+    c1:"명도전, 반량전 등 화폐를 사용하였다.",
+    desc:"철기 시대에는 중국의 명도전·반량전·오수전 등 화폐가 유통되었으며, 이는 당시 한반도와 중국 간 활발한 교역이 이루어졌음을 보여 준다." },
+  { r:10, cnt:11, kw:"빗살무늬 토기", ans:"신석기",    ansType:"neolithic",
+    c1:"빗살무늬 토기를 만들어 식량을 저장하였다.",
+    desc:"신석기 시대를 대표하는 빗살무늬 토기는 표면에 빗살 무늬가 새겨진 토기로, 음식 저장과 조리에 사용되었으며 정착 생활을 뒷받침하였다." },
+  { r:11, cnt:10, kw:"반달돌칼",      ans:"청동기",    ansType:"bronze",
+    c1:"반달돌칼을 이용하여 벼를 수확하였다.",
+    desc:"청동기 시대의 반달돌칼은 반달 모양의 간석기로, 곡물의 이삭을 따는 수확 도구로 사용되었으며 농경의 발달을 나타낸다." },
+  { r:12, cnt:10, kw:"민며느리제",    ans:"옥저",      ansType:"okjeo",
+    c1:"혼인 풍습으로 민며느리제가 있었다.",
+    desc:"옥저의 민며느리제는 어린 여자아이를 남자 집에 데려다 키운 뒤 성인이 되면 혼인시키는 풍습으로, 매매혼의 성격을 지닌다." },
+  { r:13, cnt:8,  kw:"영고",          ans:"부여",      ansType:"buyeo",
+    c1:"12월에 영고라는 제천 행사를 열었다.",
+    desc:"부여의 영고는 12월에 하늘에 제사를 지내는 제천 행사로, 온 나라가 모여 음주가무를 즐기고 죄수를 심판하는 국가적 의식이었다." },
+  { r:14, cnt:7,  kw:"세형 동검",     ans:"철기",      ansType:"iron",
+    c1:"거푸집을 이용하여 세형 동검을 제작하였다.",
+    desc:"철기 시대에 거푸집(주형)을 사용하여 제작된 세형 동검은 비파형 동검을 계승한 한국식 청동 단검으로, 한국 청동기 문화의 독자성을 보여 준다." },
+  { r:15, cnt:7,  kw:"무천",          ans:"동예",      ansType:"dongye",
+    c1:"10월에 무천이라는 제천 행사를 열었다.",
+    desc:"동예의 무천은 10월에 하늘에 제사를 지내는 제천 행사로, 밤낮으로 음주가무를 즐기며 풍년을 기원하는 공동체 의식이었다." },
+  { r:16, cnt:6,  kw:"왕검성",        ans:"고조선",    ansType:"gojoseon",
+    c1:"한 무제가 침략하여 우거왕이 피살되고 왕검성이 함락되었다.",
+    desc:"기원전 108년 한 무제의 공격으로 왕검성이 함락되면서 고조선이 멸망하였으며, 이후 한사군이 설치되었다." },
+  { r:17, cnt:6,  kw:"철제 농기구",   ans:"철기",      ansType:"iron",
+    c1:"쟁기, 쇠스랑 등의 철제 농기구를 사용하였다.",
+    desc:"철기 시대에는 쟁기·쇠스랑·호미 등 철제 농기구가 보급되면서 농업 생산력이 크게 향상되고 인구가 증가하였다." },
+  { r:18, cnt:6,  kw:"동맹",          ans:"고구려",    ansType:"goguryeo",
+    c1:"10월에 동맹이라는 제천 행사를 열었다.",
+    desc:"고구려의 동맹은 10월에 전국이 모여 하늘에 제사를 지내는 국가적 제천 행사로, 국왕이 주관하는 고구려 최대의 종교 의식이었다." },
+  { r:19, cnt:6,  kw:"단궁·과하마·반어피", ans:"동예", ansType:"dongye",
+    c1:"특산물로 단궁, 과하마, 반어피가 유명하였다.",
+    desc:"동예는 단궁(짧은 활)·과하마(작은 말)·반어피(바다짐승 가죽) 등 독특한 특산물로 유명하였으며 이를 주변 국가와 교역하였다." },
+  { r:20, cnt:6,  kw:"신지·읍차",     ans:"삼한",      ansType:"samhan",
+    c1:"신지, 읍차 등의 지배자가 있었다.",
+    desc:"삼한에서는 세력이 큰 부족장을 신지, 작은 부족장을 읍차라 불렀으며, 이들은 정치적 권력을 가진 군장으로서 각 소국을 지배하였다." },
+  { r:21, cnt:4,  kw:"철제 무기",     ans:"철기",      ansType:"iron",
+    c1:"철제 무기로 정복 활동을 벌였다.",
+    desc:"철기 시대에는 철제 무기의 보급으로 정복 전쟁이 활발해졌으며, 이는 국가 형성을 촉진하고 삼국 시대로의 전환을 가져왔다." },
+  { r:22, cnt:4,  kw:"농경·목축",     ans:"신석기",    ansType:"neolithic",
+    c1:"농경과 목축을 통해 식량을 생산하였다.",
+    desc:"신석기 시대에 농경과 목축이 시작되면서 인류는 이동 생활을 벗어나 한 곳에 정착하기 시작하였고, 식량 생산 경제가 가능해졌다." },
+  { r:23, cnt:4,  kw:"비파형 동검",   ans:"청동기",    ansType:"bronze",
+    c1:"비파형 동검과 청동 거울 등을 제작하였다.",
+    desc:"청동기 시대를 대표하는 비파형 동검은 악기 비파 모양의 청동 단검으로, 만주와 한반도 일대에 분포하며 고조선의 영역을 추정하는 근거가 된다." },
+  { r:24, cnt:3,  kw:"단군왕검",      ans:"고조선",    ansType:"gojoseon",
+    c1:"단군왕검이 건국한 역사상 최초의 국가이다.",
+    desc:"단군왕검이 기원전 2333년에 세운 고조선은 우리나라 최초의 국가로, 홍익인간의 건국 이념과 함께 대종교 등에서 개천절로 기념하고 있다." },
+  { r:25, cnt:3,  kw:"제가 회의",     ans:"고구려",    ansType:"goguryeo",
+    c1:"제가 회의에서 나라의 중대사를 결정하였다.",
+    desc:"고구려의 제가 회의는 대가들이 모여 국가 중대사를 합의하는 귀족 회의체로, 부여의 사출도 전통을 잇는 초기 고구려의 정치 제도였다." },
+  { r:26, cnt:3,  kw:"삼로",          ans:"옥저",      ansType:"okjeo",
+    c1:"삼로라 불린 우두머리가 읍락을 다스렸다.",
+    desc:"옥저에는 삼로라 불린 군장이 있었으나 강력한 왕이 없었으며, 고구려의 지배를 받아 공납을 바쳐야 하는 종속적 관계에 있었다." },
+  { r:27, cnt:3,  kw:"진개",          ans:"고조선",    ansType:"gojoseon",
+    c1:"연의 장수 진개의 공격을 받아 영토가 줄었다.",
+    desc:"기원전 3세기경 연나라 장수 진개의 공격으로 고조선은 서쪽 땅을 크게 잃었으며, 이후 만번한(청천강)을 경계로 연과 대치하였다." },
+  { r:28, cnt:3,  kw:"서옥제",        ans:"고구려",    ansType:"goguryeo",
+    c1:"혼인 풍습으로 서옥제가 있었다.",
+    desc:"고구려의 서옥제는 혼인 후 남자가 여자 집 뒤에 작은 집(서옥)을 짓고 살다가 자녀가 성장하면 남자 집으로 돌아가는 혼인 풍습이다." },
+  { r:29, cnt:2,  kw:"상가·대로·패자", ans:"고구려",   ansType:"goguryeo",
+    c1:"왕 아래 상가, 대로, 패자 등의 관직을 두었다.",
+    desc:"고구려는 왕 아래 상가·대로·패자·고추가 등의 대가(大加)들이 있었으며, 이들은 독자적인 신하와 가신을 거느리며 강력한 세력을 유지하였다." },
+  { r:30, cnt:2,  kw:"계급 발생",     ans:"청동기",    ansType:"bronze",
+    c1:"사유 재산과 계급이 발생하였다.",
+    desc:"청동기 시대에는 잉여 생산물이 생기면서 사유재산 개념이 등장하고, 빈부 격차와 지배·피지배의 계급 구조가 처음으로 형성되었다." },
+  { r:31, cnt:2,  kw:"가(加)",        ans:"부여",      ansType:"buyeo",
+    c1:"마가, 우가, 저가, 구가 등이 지역을 다스렸다.",
+    desc:"부여의 마가·우가·저가·구가는 각각 말·소·돼지·개를 뜻하는 동물 이름을 딴 관직명으로, 각 가(加)들은 사출도를 독립적으로 통치하였다." },
+  { r:32, cnt:1,  kw:"천군",          ans:"삼한",      ansType:"samhan",
+    c1:"제사장인 천군과 신성 지역인 소도가 존재하였다.",
+    desc:"삼한의 천군은 제사를 전담하는 제사장으로 정치 지배자인 군장과 분리되어 있었으며, 이는 제정 분리 사회의 특징을 잘 보여 준다." },
+];
+
+const kwStyle = {
+  paleolithic: "background:#ede0d0;color:#4a2c10;border:1px solid #c8a880",
+  neolithic:   "background:#d8f0e8;color:#1a5038;border:1px solid #80c8a8",
+  bronze:      "background:#f8e8c0;color:#6a4a00;border:1px solid #d8b840",
+  iron:        "background:#e0e8f0;color:#1a2850;border:1px solid #8098c0",
+  gojoseon:    "background:#f0e0e8;color:#680830;border:1px solid #d090a8",
+  buyeo:       "background:#e8e0f8;color:#401868;border:1px solid #b090d8",
+  okjeo:       "background:#d8f0f8;color:#0a4058;border:1px solid #70b8d8",
+  dongye:      "background:#e8f0d8;color:#284808;border:1px solid #90b870",
+  samhan:      "background:#f8e8e8;color:#681818;border:1px solid #d89898",
+  goguryeo:    "background:#e0f0e8;color:#1a5030;border:1px solid #90c8a8",
+  other:       "background:#eeeeee;color:#404040;border:1px solid #cccccc",
+};
+
+function barTier(cnt) {
+  if (cnt >= 16) return 'bt1';
+  if (cnt >= 11) return 'bt2';
+  if (cnt >= 7)  return 'bt3';
+  if (cnt >= 4)  return 'bt4';
+  return 'bt5';
+}
+
+function rankClass(r) {
+  if (r === 1) return 'rank-1';
+  if (r === 2) return 'rank-2';
+  if (r === 3) return 'rank-3';
+  return 'rank-default';
+}
+
+const tbody = document.getElementById('tbody');
+const mobileList = document.getElementById('mobileList');
+
+// 줄무늬 색상 (barTier와 동일 계열)
+const stripeColor = {
+  bt1: 'linear-gradient(90deg,#9b2828,#c94040)',
+  bt2: 'linear-gradient(90deg,#b86020,#d89040)',
+  bt3: 'linear-gradient(90deg,#c0981a,#d8b840)',
+  bt4: 'linear-gradient(90deg,#2a7a50,#48a870)',
+  bt5: 'linear-gradient(90deg,#1a6080,#3090b0)',
+};
+
+rows.forEach(d => {
+  const pct  = Math.round((d.cnt / MAX) * 100);
+  const ks   = kwStyle[d.ansType] || kwStyle.other;
+  const tier = barTier(d.cnt);
+
+  /* ── 데스크톱 테이블 행 ── */
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="col-rank tc"><span class="rank-badge ${rankClass(d.r)}">${d.r}</span></td>
+    <td class="col-choice">
+      <span class="choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="choice-desc">${d.desc}</span>` : ''}
+    </td>
+    <td class="col-kw"><span class="kw-tag" style="${ks}">${d.kw}</span></td>
+    <td class="col-ans"><span class="ans-tag ans-${d.ansType}">${d.ans}</span></td>
+    <td class="col-bar">
+      <div class="bar-row">
+        <span class="bar-num">${d.cnt}</span>
+        <div class="bar-track">
+          <div class="bar-fill ${tier}" style="width:${pct}%"></div>
+        </div>
+      </div>
+    </td>`;
+  tbody.appendChild(tr);
+
+  /* ── 모바일 카드 ── */
+  const mc = document.createElement('div');
+  mc.className = 'm-card';
+  mc.innerHTML = `
+    <div class="m-card-stripe" style="background:${stripeColor[tier]}"></div>
+    <div class="m-card-head">
+      <span class="rank-badge ${rankClass(d.r)}">${d.r}</span>
+      <span class="kw-tag" style="${ks}">${d.kw}</span>
+      <span class="ans-tag ans-${d.ansType}" style="margin-left:auto">${d.ans}</span>
+    </div>
+    <div class="m-card-body">
+      <span class="m-choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="m-choice-desc">${d.desc}</span>` : ''}
+      <div class="m-card-foot">
+        <div class="m-tags"></div>
+        <div class="m-bar-wrap">
+          <span class="m-bar-num">${d.cnt}회</span>
+          <div class="m-bar-track">
+            <div class="m-bar-fill ${tier}" style="width:${pct}%"></div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  mobileList.appendChild(mc);
+});
+</script>
+</body>
+</html>

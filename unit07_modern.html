@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>근현대사 핵심 키워드 빈출표</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f9f6ef; --paper2: #f1ece0;
+    --ink: #1c160c; --ink2: #3a3020; --ink3: #7c6e55; --ink4: #b0a080;
+    --red: #9b2828; --red2: #c94040; --amber: #b87820; --amber2: #d4a030;
+    --teal: #1a6060; --teal2: #2a8070;
+    --border: #d0c4aa; --border2: #e4dac8;
+    --shadow: rgba(28,22,12,0.10); --shadow2: rgba(28,22,12,0.05);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    background-image: radial-gradient(ellipse at 15% 10%, rgba(184,120,32,0.06) 0%, transparent 60%), radial-gradient(ellipse at 85% 90%, rgba(26,96,96,0.05) 0%, transparent 60%);
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 13px; color: var(--ink); min-height: 100vh; padding: 48px 20px 72px;
+  }
+  .page-header { max-width: 1120px; margin: 0 auto 36px; }
+  .header-inner { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-bottom: 18px; border-bottom: 2px solid var(--border); }
+  .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .eyebrow-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; }
+  .eyebrow-text { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); }
+  h1 { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 30px; font-weight: 800; color: var(--ink); line-height: 1.25; letter-spacing: -0.3px; }
+  h1 em { font-style: normal; color: var(--red); border-bottom: 2.5px solid var(--amber2); }
+  .header-sub { margin-top: 7px; font-size: 12.5px; color: var(--ink3); font-weight: 400; letter-spacing: 0.2px; }
+  .header-right { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding-bottom: 4px; }
+  .chip { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 7px 16px; text-align: center; box-shadow: 0 2px 6px var(--shadow2); }
+  .chip-num { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 18px; font-weight: 700; color: var(--red); display: block; line-height: 1; }
+  .chip-label { font-size: 10.5px; color: var(--ink3); margin-top: 3px; white-space: nowrap; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+  .legend-title { font-size: 11px; color: var(--ink4); font-weight: 500; margin-right: 2px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--ink3); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .card { max-width: 1120px; margin: 0 auto; background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px var(--shadow2), 0 8px 32px var(--shadow); }
+  .card-top-stripe { height: 4px; background: linear-gradient(90deg, var(--red) 0%, var(--red2) 20%, var(--amber) 40%, var(--amber2) 55%, var(--teal) 75%, var(--teal2) 100%); }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: linear-gradient(180deg, #22180a 0%, #1a1208 100%); }
+  thead th { padding: 13px 14px; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; font-weight: 700; color: #d8cbb0; letter-spacing: 0.8px; text-align: left; white-space: nowrap; border-right: 1px solid rgba(255,255,255,0.06); }
+  thead th:last-child { border-right: none; }
+  thead th.tc { text-align: center; }
+  tbody tr { border-bottom: 1px solid var(--border2); transition: background 0.12s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--paper2); }
+  tbody tr:hover { background: #ede4d0; }
+  td { padding: 11px 14px; font-size: 13px; vertical-align: middle; border-right: 1px solid var(--border2); }
+  td:last-child { border-right: none; }
+  .col-rank { width: 52px; min-width: 52px; text-align: center; }
+  .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; font-size: 11.5px; font-weight: 700; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; }
+  .rank-1  { background: #f5e6a8; color: #7a5800; border: 1.5px solid #c8a030; }
+  .rank-2  { background: #e8e8e8; color: #505050; border: 1.5px solid #a8a8a8; }
+  .rank-3  { background: #f5d8b8; color: #7a3a08; border: 1.5px solid #c07840; }
+  .rank-default { background: transparent; color: var(--ink3); border: 1px solid var(--border); font-size: 11px; }
+  .col-choice { min-width: 280px; max-width: 400px; line-height: 1.65; color: var(--ink2); font-size: 12.5px; }
+  .choice-main { display: block; }
+  .choice-desc { display: block; font-size: 11.5px; color: var(--ink3); line-height: 1.6; margin-top: 6px; padding: 5px 8px; background: var(--paper2); border-left: 2.5px solid var(--border); border-radius: 0 4px 4px 0; }
+  .col-kw { width: 165px; min-width: 145px; }
+  .kw-tag { display: inline-block; padding: 4px 10px; border-radius: 5px; font-size: 12px; font-weight: 600; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; white-space: nowrap; letter-spacing: 0.2px; }
+  .col-ans { width: 155px; min-width: 135px; }
+  .ans-tag { display: inline-block; padding: 3px 9px; border-radius: 4px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+  /* 근현대사 정답 색상 */
+  .ans-park     { background: #f0e8d0; color: #5a3808; border: 1px solid #d0a850; }
+  .ans-chun     { background: #ffe0e0; color: #7a1818; border: 1px solid #d89090; }
+  .ans-roh1     { background: #e0f0e8; color: #1a5030; border: 1px solid #80c8a0; }
+  .ans-roh2     { background: #d8f0f8; color: #0a4060; border: 1px solid #70b8d8; }
+  .ans-dj       { background: #e8e0f8; color: #3a1878; border: 1px solid #b098d8; }
+  .ans-ys       { background: #f8e8c8; color: #6a4008; border: 1px solid #d8b060; }
+  .ans-lee      { background: #e8f0d8; color: #284808; border: 1px solid #90b870; }
+  .ans-rev      { background: #f8e0f0; color: #601848; border: 1px solid #d090b8; }
+  .ans-year     { background: #f4ecd8; color: #5a4010; border: 1px solid #c8b080; }
+  .ans-event    { background: #e8eef8; color: #203060; border: 1px solid #a0b4d8; }
+  .ans-other    { background: #eeeeee; color: #404040; border: 1px solid #cccccc; }
+  .col-bar { min-width: 180px; width: 210px; }
+  .bar-row { display: flex; align-items: center; gap: 9px; }
+  .bar-num { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 700; min-width: 22px; text-align: right; color: var(--red); }
+  .bar-track { flex: 1; height: 9px; background: var(--paper2); border-radius: 5px; overflow: hidden; border: 1px solid var(--border); }
+  .bar-fill { height: 100%; border-radius: 5px; }
+  .bt1 { background: linear-gradient(90deg, #9b2828, #c94040); }
+  .bt2 { background: linear-gradient(90deg, #b86020, #d89040); }
+  .bt3 { background: linear-gradient(90deg, #c0981a, #d8b840); }
+  .bt4 { background: linear-gradient(90deg, #2a7a50, #48a870); }
+  .bt5 { background: linear-gradient(90deg, #1a6080, #3090b0); }
+  .footer { max-width: 1120px; margin: 22px auto 0; font-size: 11px; color: var(--ink4); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  /* ── MOBILE CARD LIST ── */
+  .mobile-list { display: none; }
+
+  .m-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow2);
+    margin-bottom: 12px;
+  }
+
+  .m-card-stripe { height: 4px; }
+
+  .m-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 8px;
+  }
+
+  .m-card-body {
+    padding: 0 14px 14px;
+  }
+
+  .m-choice-main {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink2);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .m-choice-desc {
+    display: block;
+    font-size: 12px;
+    color: var(--ink3);
+    line-height: 1.65;
+    padding: 7px 10px;
+    background: var(--paper2);
+    border-left: 2.5px solid var(--border);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 10px;
+  }
+
+  .m-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .m-tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+  .m-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+
+  .m-bar-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    min-width: 28px;
+    text-align: right;
+  }
+
+  .m-bar-track {
+    width: 80px;
+    height: 8px;
+    background: var(--paper2);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .m-bar-fill { height: 100%; border-radius: 5px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    body { padding: 28px 14px 60px; font-size: 13px; }
+    h1 { font-size: 22px; }
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .header-right { gap: 8px; }
+    .chip { padding: 6px 12px; }
+    .chip-num { font-size: 16px; }
+    .legend { gap: 8px; margin-top: 12px; }
+    .legend-item { font-size: 10.5px; }
+    /* 테이블 숨기고 카드 리스트 표시 */
+    .card { display: none; }
+    .mobile-list { display: block; max-width: 1120px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-text">한국사능력검정시험 대비 학습자료</span></div>
+      <h1>근현대사 <em>핵심 키워드</em> 빈출 선택지</h1>
+      <p class="header-sub">실제 기출 선택지 분석 · 핵심 키워드 빈도 기준 상위 50개 항목</p>
+    </div>
+    <div class="header-right">
+      <div class="chip"><span class="chip-num">697</span><div class="chip-label">총 기출 선택지</div></div>
+      <div class="chip"><span class="chip-num">50</span><div class="chip-label">핵심 키워드</div></div>
+      <div class="chip"><span class="chip-num">38</span><div class="chip-label">최고 출제횟수</div></div>
+    </div>
+  </div>
+  <div class="legend">
+    <span class="legend-title">정답 구분 →</span>
+    <div class="legend-item"><div class="legend-dot" style="background:#5a3808;border:1px solid #d0a850"></div>박정희·유신</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#7a1818;border:1px solid #d89090"></div>전두환</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a5030;border:1px solid #80c8a0"></div>노태우</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#0a4060;border:1px solid #70b8d8"></div>노무현·문재인</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3a1878;border:1px solid #b098d8"></div>김대중</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6a4008;border:1px solid #d8b060"></div>김영삼</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#284808;border:1px solid #90b870"></div>이승만</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#601848;border:1px solid #d090b8"></div>혁명·항쟁</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5a4010;border:1px solid #c8b080"></div>연도·사건</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#203060;border:1px solid #a0b4d8"></div>전쟁·광주</div>
+  </div>
+</header>
+
+<div class="card">
+  <div class="card-top-stripe"></div>
+  <table>
+    <thead>
+      <tr>
+        <th class="tc">순위</th>
+        <th>대표 선택지</th>
+        <th>핵심 키워드</th>
+        <th>정답</th>
+        <th>출제횟수</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="mobile-list" id="mobileList"></div>
+
+<footer class="footer">
+  <span>출처 : 한국사능력검정시험 기출문제 &nbsp;|&nbsp; 총 697개 선택지 · 핵심 키워드 분석</span>
+  <span>빈도 기준 내림차순 정렬 (1위 = 최다 출제)</span>
+</footer>
+
+<script>
+const MAX = 38;
+
+const rows = [
+  { r:1,  cnt:38, kw:"경부 고속 도로",      ans:"박정희",   ansType:"park",
+    c1:"경부 고속 도로가 개통되었다.",
+    desc:"박정희 정부는 1970년 경부 고속 도로를 개통하여 서울~부산 간 이동 시간을 단축하고 경제 개발의 인프라를 구축하였으며, 이는 수출 주도형 경제 성장의 상징이 되었다." },
+  { r:2,  cnt:21, kw:"남북한 유엔 동시 가입", ans:"노태우",   ansType:"roh1",
+    c1:"남북한이 유엔에 동시 가입하였다.",
+    desc:"노태우 정부는 1991년 북방 외교의 성과로 남북한이 유엔에 동시 가입하였으며, 한소 수교·한중 수교 등 사회주의 국가들과의 외교 관계를 수립하였다." },
+  { r:3,  cnt:21, kw:"금융 실명제",          ans:"김영삼",   ansType:"ys",
+    c1:"대통령 긴급 명령으로 금융 실명제가 실시되었다.",
+    desc:"김영삼 정부는 1993년 대통령 긴급 명령으로 금융 실명제를 전격 시행하여 차명 계좌를 통한 비리와 탈세를 근절하고자 하였으며, 이는 문민정부 개혁의 상징적 조치였다." },
+  { r:4,  cnt:20, kw:"금 모으기 운동",       ans:"김대중",   ansType:"dj",
+    c1:"외환 위기 극복을 위한 금 모으기 운동이 전개되었다.",
+    desc:"김대중 정부 출범 직후 IMF 외환 위기 극복을 위해 전국민적 금 모으기 운동이 전개되어 약 227t의 금이 모아졌으며, 노사정 위원회 출범과 공공 부문 구조 조정도 함께 추진되었다." },
+  { r:5,  cnt:20, kw:"7·4 남북 공동 성명",   ans:"박정희",   ansType:"park",
+    c1:"7·4 남북 공동 성명을 발표하고 남북 조절 위원회를 구성하였다.",
+    desc:"박정희 정부 시기인 1972년 자주·평화·민족 대단결의 3대 원칙을 담은 7·4 남북 공동 성명이 발표되었으며, 이를 실천하기 위한 남북 조절 위원회가 구성되었다." },
+  { r:6,  cnt:19, kw:"유신 헌법",            ans:"유신헌법", ansType:"park",
+    c1:"통일 주체 국민 회의에서 대통령을 선출하는 유신 헌법이 공포되었다.",
+    desc:"1972년 박정희는 10월 유신을 선포하고 유신 헌법을 공포하여 대통령 임기 6년·중임 제한 폐지·긴급 조치권 등을 규정함으로써 영구 집권을 위한 독재 체제를 구축하였다." },
+  { r:7,  cnt:18, kw:"한·칠레 FTA",          ans:"노무현",   ansType:"roh2",
+    c1:"칠레와의 자유 무역 협정(FTA)이 체결되었다.",
+    desc:"노무현 정부는 2004년 우리나라 최초의 FTA인 한·칠레 FTA를 발효시켰으며, 이후 한·미 FTA·한·EU FTA 등 다자간 자유 무역 협정 체결을 적극 추진하였다." },
+  { r:8,  cnt:17, kw:"남북 이산가족 고향 방문", ans:"전두환",  ansType:"chun",
+    c1:"최초로 남북 이산가족 고향 방문단 교환이 이루어졌다.",
+    desc:"전두환 정부 시기인 1985년 분단 이후 최초로 남북 이산가족 고향 방문단과 예술 공연단 교환이 이루어졌으며, 이는 남북 관계 개선의 상징적 사건이었다." },
+  { r:9,  cnt:15, kw:"허정 과도 정부",        ans:"4.19혁명", ansType:"rev",
+    c1:"허정 과도 정부가 구성되는 결과를 가져왔다.",
+    desc:"1960년 3·15 부정 선거에 항거한 4·19 혁명으로 이승만이 하야하자 허정 과도 정부가 구성되었으며, 이후 내각 책임제를 채택한 장면 정부가 수립되었다." },
+  { r:10, cnt:14, kw:"삼청 교육대",           ans:"전두환",   ansType:"chun",
+    c1:"사회 정화를 명분으로 삼청 교육대가 설치되었다.",
+    desc:"전두환 정부는 1980년 '사회 정화'를 명분으로 삼청 교육대를 설치하여 불법으로 구금한 4만여 명을 강제 노역·가혹 행위에 처하였으며, 이는 반인권적 인권 탄압의 상징이었다." },
+  { r:11, cnt:14, kw:"호헌 철폐·독재 타도",   ans:"6월 민주항쟁", ansType:"rev",
+    c1:"호헌 철폐와 독재 타도 등의 구호를 내세우며 전국적 시위가 확산되었다.",
+    desc:"1987년 박종철 고문치사 사건과 4·13 호헌 조치에 분노한 시민들이 '호헌 철폐·독재 타도'를 외치며 6월 민주 항쟁을 일으켰고, 결국 6·29 민주화 선언과 직선제 개헌을 이끌어냈다." },
+  { r:12, cnt:11, kw:"경향신문 폐간",         ans:"이승만",   ansType:"lee",
+    c1:"정부에 비판적인 경향신문이 폐간되었다.",
+    desc:"이승만 정부는 1959년 비판적인 보도를 일삼던 경향신문을 폐간하였으며, 같은 시기 진보당의 조봉암을 사형에 처하는 등 반민주적 탄압을 강화하였다." },
+  { r:13, cnt:9,  kw:"6·15 남북 공동 선언",   ans:"김대중",   ansType:"dj",
+    c1:"6·15 남북 공동 선언을 채택하였다.",
+    desc:"김대중 정부는 2000년 최초의 남북 정상 회담을 통해 6·15 남북 공동 선언을 채택하고 금강산 관광·개성 공단 건설 등 남북 교류 협력을 확대하였다." },
+  { r:14, cnt:7,  kw:"농지 개혁법",           ans:"1949년",   ansType:"year",
+    c1:"유상 매수·유상 분배를 원칙으로 하는 농지 개혁법이 제정되었다.",
+    desc:"1949년 이승만 정부 때 유상 매수·유상 분배를 원칙으로 하는 농지 개혁법이 제정되어 3정보 이상의 농지를 소작농에게 분배하였으며, 봉건적 지주제를 해소하는 데 기여하였다." },
+  { r:15, cnt:7,  kw:"조봉암 처형",           ans:"이승만",   ansType:"lee",
+    c1:"평화 통일론을 주장한 진보당의 조봉암이 처형되었다.",
+    desc:"이승만 정부는 1959년 평화 통일론을 주장하며 대통령 선거에서 선전한 조봉암을 간첩 혐의로 사형에 처하였으며, 이는 대표적인 사법 살인 사건으로 꼽힌다." },
+  { r:16, cnt:7,  kw:"시민군",               ans:"5.18 민주화 운동", ansType:"event",
+    c1:"시위 과정에서 시민군이 자발적으로 조직되었다.",
+    desc:"1980년 신군부의 비상 계엄 확대와 무력 진압에 맞서 광주 시민들이 자발적으로 시민군을 조직하여 계엄군에 저항하였으며, 5·18 민주화 운동 관련 기록물은 유네스코 세계 기록 유산에 등재되었다." },
+  { r:17, cnt:7,  kw:"3저 호황",              ans:"전두환",   ansType:"chun",
+    c1:"저유가·저금리·저달러의 3저 호황이 있었다.",
+    desc:"전두환 정부 말기인 1986~1988년에는 저유가·저금리·저달러의 3저 호황으로 수출이 급증하고 경제가 고도 성장하였으며, 이를 토대로 서울 올림픽을 성공적으로 개최하였다." },
+  { r:18, cnt:7,  kw:"10·4 남북 정상 선언",   ans:"노무현",   ansType:"roh2",
+    c1:"남북 관계 발전과 평화 번영을 위한 10·4 남북 정상 선언에 서명하였다.",
+    desc:"노무현 정부는 2007년 평양에서 제2차 남북 정상 회담을 열어 10·4 남북 정상 선언을 채택하였으며, 서해 평화 협력 특별 지대 설치와 개성 공단 확대 등을 합의하였다." },
+  { r:19, cnt:7,  kw:"서울 올림픽",           ans:"노태우",   ansType:"roh1",
+    c1:"서울 올림픽 대회가 개최되었다.",
+    desc:"노태우 정부 시기인 1988년 서울에서 제24회 하계 올림픽이 개최되었으며, 동서 냉전 체제하에서 동·서 양 진영이 모두 참가한 최초의 올림픽으로 한국의 국제적 위상을 크게 높였다." },
+  { r:20, cnt:6,  kw:"수출 100억 달러",        ans:"박정희",   ansType:"park",
+    c1:"처음으로 연간 수출액 100억 달러가 달성되었다.",
+    desc:"박정희 정부 시기인 1977년 연간 수출액 100억 달러를 처음 달성하였으며, 이는 수출 주도형 경제 개발 계획의 성과로 한국 경제의 고도 성장을 상징하는 이정표였다." },
+  { r:21, cnt:6,  kw:"박종철 고문치사",        ans:"전두환",   ansType:"chun",
+    c1:"박종철 고문 치사 사건이 발생하였다.",
+    desc:"1987년 서울대 학생 박종철이 경찰 조사 중 고문으로 사망한 사건은 전두환 정권의 인권 탄압 실상을 폭로하였으며, 이는 6월 민주 항쟁의 직접적인 기폭제가 되었다." },
+  { r:22, cnt:6,  kw:"직선제 개헌",           ans:"6월 민주항쟁", ansType:"rev",
+    c1:"6·29 선언으로 직선제 개헌을 약속받았다.",
+    desc:"1987년 6월 민주 항쟁의 결과 집권당 대표 노태우가 6·29 민주화 선언을 통해 대통령 직선제·5년 단임제 개헌을 약속하였으며, 이로써 9차 개헌이 이루어졌다." },
+  { r:23, cnt:6,  kw:"개성 공단",             ans:"노무현",   ansType:"roh2",
+    c1:"남북 경제 협력 협의 사무소가 설치된 개성 공단 착공식이 열렸다.",
+    desc:"노무현 정부는 2003년 개성 공단 착공식을 열고 남북 경제 협력을 본격화하였으며, 2004년 시험 가동을 거쳐 남북 합작 산업 단지로 성장하여 남북 경제 협력의 상징이 되었다." },
+  { r:24, cnt:6,  kw:"좌우 합작",             ans:"1946년",   ansType:"year",
+    c1:"여운형·김규식 등의 주도로 좌우 합작 위원회가 구성되었다.",
+    desc:"1946년 미소 공동 위원회가 결렬되자 여운형·김규식이 좌우 합작 위원회를 결성하고 좌우 합작 7원칙을 발표하였으나, 이승만·김구의 반대와 미군정의 소극적 지원으로 좌절되었다." },
+  { r:25, cnt:6,  kw:"한반도 비핵화",          ans:"노태우",   ansType:"roh1",
+    c1:"한반도 비핵화 공동 선언에 합의하였다.",
+    desc:"노태우 정부는 1991년 남북한이 유엔에 동시 가입한 뒤 남북 기본 합의서와 한반도 비핵화 공동 선언을 채택하여 남북 관계 정상화와 냉전 종식을 위한 기반을 마련하였다." },
+  { r:26, cnt:5,  kw:"최저 임금 위원회",       ans:"전두환",   ansType:"chun",
+    c1:"최저 임금 결정을 위한 최저 임금 위원회가 설치되었다.",
+    desc:"전두환 정부 시기인 1986년 최저 임금법이 제정되고 최저 임금 위원회가 설치되어 노동자의 최소한의 생활 수준을 보장하기 위한 제도적 기반이 마련되었다." },
+  { r:27, cnt:5,  kw:"민주 노동조합 총연맹",   ans:"김영삼",   ansType:"ys",
+    c1:"전국 민주 노동조합 총연맹이 창립되었다.",
+    desc:"김영삼 정부 시기인 1995년 민주적 노동 운동을 지향하는 전국 민주 노동조합 총연맹(민주노총)이 창립되었으며, 이는 한국 노동 운동의 새로운 구심점이 되었다." },
+  { r:28, cnt:5,  kw:"YH 무역 농성",          ans:"박정희",   ansType:"park",
+    c1:"YH 무역 노동자들이 야당 당사에서 농성을 벌였다.",
+    desc:"1979년 YH 무역 여성 노동자들이 신민당사에서 농성을 벌이다 경찰의 강제 진압으로 1명이 사망하였으며, 이 사건과 이어진 부마항쟁이 유신 체제 붕괴의 도화선이 되었다." },
+  { r:29, cnt:5,  kw:"반민 특위",              ans:"이승만",   ansType:"lee",
+    c1:"반민족 행위 처벌법이 통과되어 반민 특위가 설치되었다.",
+    desc:"1948년 제헌 국회가 반민족 행위 처벌법을 제정하고 반민족 행위 특별 조사 위원회(반민 특위)를 설치하였으나, 이승만 정부의 방해와 1949년 경찰의 반민 특위 습격으로 사실상 와해되었다." },
+  { r:30, cnt:5,  kw:"한미 상호 방위 조약",    ans:"1953년",   ansType:"year",
+    c1:"한미 상호 방위 조약이 체결되었다.",
+    desc:"1953년 정전 협정 체결 후 한미 상호 방위 조약이 체결되어 미군이 한국에 주둔할 법적 근거가 마련되었으며, 이는 현재까지 한미 동맹의 기초가 되고 있다." },
+  { r:31, cnt:5,  kw:"대통령 하야",            ans:"4.19혁명", ansType:"rev",
+    c1:"3·15 부정 선거에 항거한 4·19 혁명으로 대통령이 하야하였다.",
+    desc:"4·19 혁명은 1960년 3·15 부정 선거를 규탄하며 시작된 민주화 운동으로, 학생과 시민의 대규모 시위 끝에 이승만 대통령이 하야하고 허정 과도 정부가 수립되었다." },
+  { r:32, cnt:5,  kw:"발췌 개헌",              ans:"1952년",   ansType:"year",
+    c1:"비상 계엄이 선포된 가운데 발췌 개헌안이 통과되었다.",
+    desc:"이승만은 1952년 부산 정치 파동 때 비상 계엄을 선포하고 내각 책임제 개헌안과 대통령 직선제 개헌안을 강제로 발췌 결합한 발췌 개헌안을 통과시켜 재선을 꾀하였다." },
+  { r:33, cnt:5,  kw:"한·미 FTA",              ans:"노무현",   ansType:"roh2",
+    c1:"미국과 자유 무역 협정(FTA)을 체결하였다.",
+    desc:"노무현 정부는 2007년 한·미 FTA 협상을 타결하였으며, 이는 역대 최대 규모의 FTA로 양국 간 상품·서비스·투자 등 전 분야의 교역 장벽 철폐를 목표로 하였다." },
+  { r:34, cnt:5,  kw:"판문점 남북 정상 회담",  ans:"문재인",   ansType:"roh2",
+    c1:"판문점에서 남북 정상 회담을 개최하고 판문점 선언을 채택하였다.",
+    desc:"문재인 정부는 2018년 판문점에서 남북 정상 회담을 개최하고 한반도 평화·번영·통일을 위한 판문점 선언을 채택하였으며, 같은 해 평창 동계 올림픽에서 남북 단일팀이 구성되었다." },
+  { r:35, cnt:5,  kw:"남북 기본 합의서",       ans:"노태우",   ansType:"roh1",
+    c1:"남북이 상호 체제 인정 등을 담은 남북 기본 합의서를 채택하였다.",
+    desc:"노태우 정부는 1991년 남북 간 화해·불가침·교류 협력 등을 담은 남북 기본 합의서를 채택하였으며, 같은 해 한반도 비핵화 공동 선언에도 합의하였다." },
+  { r:36, cnt:5,  kw:"호주제 폐지",            ans:"노무현",   ansType:"roh2",
+    c1:"양성 평등의 실현을 위해 호주제가 폐지되었다.",
+    desc:"노무현 정부는 2005년 민법을 개정하여 가부장적 가족 제도의 상징인 호주제를 폐지하였으며, 이는 성 평등 실현과 개인의 존엄성 보장을 위한 중요한 법제도 개혁이었다." },
+  { r:37, cnt:5,  kw:"3·15 부정 선거",         ans:"4.19혁명", ansType:"rev",
+    c1:"3·15 부정 선거에 항의하여 시위가 시작되었다.",
+    desc:"1960년 자유당이 이승만·이기붕의 당선을 위해 공개 투표·4할 사전 투표·투표함 바꿔치기 등 대규모 부정 선거를 자행하였으며, 이에 항거한 시위가 4·19 혁명으로 이어졌다." },
+  { r:38, cnt:4,  kw:"좌우 합작 위원회",       ans:"여운형",   ansType:"year",
+    c1:"여운형·김규식이 좌우 합작 위원회를 조직하였다.",
+    desc:"여운형과 김규식은 1946년 좌우 합작 위원회를 조직하고 좌우 합작 7원칙을 발표하여 통일 정부 수립을 추진하였으나, 좌우 대립과 미군정의 한계로 실현되지 못하였다." },
+  { r:39, cnt:4,  kw:"OECD 가입",              ans:"김영삼",   ansType:"ys",
+    c1:"경제 협력 개발 기구(OECD) 회원국이 되었다.",
+    desc:"김영삼 정부는 1996년 OECD에 가입하여 선진국 클럽의 일원이 되었으나, 이를 계기로 자본 시장 개방이 급속히 이루어져 1997년 외환 위기를 초래하는 원인 중 하나가 되었다." },
+  { r:40, cnt:4,  kw:"북방 외교",              ans:"노태우",   ansType:"roh1",
+    c1:"북방 정책을 주도하여 소련·중국 등 사회주의 국가와 수교하였다.",
+    desc:"노태우 정부는 7·7 선언을 바탕으로 북방 외교를 추진하여 헝가리(1989)·소련(1990)·중국(1992) 등 사회주의 국가들과 잇달아 수교하였으며, 남북 관계 개선의 외교적 기반을 마련하였다." },
+  { r:41, cnt:4,  kw:"경제 개발 5개년 계획",   ans:"박정희",   ansType:"park",
+    c1:"경제 개발 5개년 계획을 수립하여 수출 주도형 경제 성장을 추진하였다.",
+    desc:"박정희 정부는 1962년부터 경제 개발 5개년 계획을 수립·시행하여 경공업 육성에서 중화학 공업으로 산업을 고도화하였으며, 이를 통해 한국의 한강의 기적을 이룩하였다." },
+  { r:42, cnt:4,  kw:"삼백 산업",              ans:"이승만",   ansType:"lee",
+    c1:"미국의 원조 물자를 가공하는 삼백 산업이 발달하였다.",
+    desc:"이승만 정부 시기 미국의 원조를 바탕으로 설탕·밀가루·면화(면방직)를 가공하는 이른바 삼백 산업이 발달하였으며, 이는 소비재 중심의 취약한 원조 의존형 경제 구조를 낳았다." },
+  { r:43, cnt:4,  kw:"모스크바 3국 외상 회의", ans:"1945년",  ansType:"year",
+    c1:"모스크바 3국 외상 회의가 개최되었다.",
+    desc:"1945년 12월 미·영·소 3국의 외상이 모스크바에서 회의를 열어 한반도에 최대 5년간 신탁 통치를 실시하기로 결정하였으며, 이에 대한 찬반 논쟁이 좌우 대립을 심화시켰다." },
+  { r:44, cnt:3,  kw:"정읍 발언",              ans:"이승만",   ansType:"lee",
+    c1:"정읍에서 남한만의 단독 정부 수립을 주장하였다.",
+    desc:"이승만은 1946년 정읍 연설에서 남한만이라도 단독 정부를 수립할 것을 주장하였으며, 이는 한반도 분단을 가속화하고 단독 정부 수립론의 출발점이 되었다." },
+  { r:45, cnt:3,  kw:"유엔군 파병",            ans:"6.25전쟁", ansType:"event",
+    c1:"유엔 안전 보장 이사회의 결의로 유엔군이 한반도에 파병되었다.",
+    desc:"1950년 6·25 전쟁 발발 직후 유엔 안전 보장 이사회는 유엔군 파병을 결의하였고, 16개국이 참전하여 낙동강 방어선까지 밀렸던 전세를 인천 상륙 작전으로 역전시켰다." },
+  { r:46, cnt:3,  kw:"제주 4·3 특별법",        ans:"제주 4.3 사건", ansType:"event",
+    c1:"진상 규명과 희생자 명예 회복을 위한 특별법이 제정되었다.",
+    desc:"1948년 4월 3일 제주에서 남한 단독 선거에 반대한 무장봉기가 일어났으며, 수만 명의 민간인이 희생되었다. 2000년 특별법이 제정되어 진상 규명과 희생자 명예 회복이 추진되었다." },
+  { r:47, cnt:3,  kw:"지방 자치제 전면 시행",   ans:"김영삼",   ansType:"ys",
+    c1:"자치 단체장까지 선출하는 지방 자치제가 전면 시행되었다.",
+    desc:"김영삼 정부는 1995년 자치 단체장 선거를 포함한 지방 자치 선거를 전면 실시하여 30년 만에 지방 자치를 완전히 부활시켰으며, 이는 풀뿌리 민주주의의 토대를 마련하였다." },
+  { r:48, cnt:3,  kw:"국가 보위 비상 대책위",  ans:"전두환",   ansType:"chun",
+    c1:"국가 보위 비상 대책 위원회가 구성되어 실권을 장악하였다.",
+    desc:"1980년 5·18 민주화 운동 진압 이후 전두환은 국가 보위 비상 대책 위원회를 설치하여 국정 전반을 장악하였으며, 이를 통해 대통령에 취임하기 위한 기반을 마련하였다." },
+  { r:49, cnt:3,  kw:"IMF 조기 상환",          ans:"김대중",   ansType:"dj",
+    c1:"국제 통화 기금(IMF) 구제 금융을 조기 상환하였다.",
+    desc:"김대중 정부는 외환 위기 극복을 위한 강도 높은 구조 조정과 금 모으기 운동 등의 노력으로 IMF 구제 금융을 2001년 8월 예정보다 3년 앞서 조기 상환하는 성과를 거두었다." },
+  { r:50, cnt:3,  kw:"노사정 위원회",          ans:"김대중",   ansType:"dj",
+    c1:"대통령 직속 자문 기구로 노사정 위원회가 출범하였다.",
+    desc:"김대중 정부는 1998년 노·사·정 3자 협의 기구인 노사정 위원회를 출범시켜 외환 위기 극복을 위한 사회적 대타협을 이끌었으며, 이를 통해 정리 해고제·근로자 파견제가 도입되었다." },
+];
+
+const kwStyle = {
+  park:  "background:#f0e8d0;color:#5a3808;border:1px solid #d0a850",
+  chun:  "background:#ffe0e0;color:#7a1818;border:1px solid #d89090",
+  roh1:  "background:#e0f0e8;color:#1a5030;border:1px solid #80c8a0",
+  roh2:  "background:#d8f0f8;color:#0a4060;border:1px solid #70b8d8",
+  dj:    "background:#e8e0f8;color:#3a1878;border:1px solid #b098d8",
+  ys:    "background:#f8e8c8;color:#6a4008;border:1px solid #d8b060",
+  lee:   "background:#e8f0d8;color:#284808;border:1px solid #90b870",
+  rev:   "background:#f8e0f0;color:#601848;border:1px solid #d090b8",
+  year:  "background:#f4ecd8;color:#5a4010;border:1px solid #c8b080",
+  event: "background:#e8eef8;color:#203060;border:1px solid #a0b4d8",
+  other: "background:#eeeeee;color:#404040;border:1px solid #cccccc",
+};
+
+function barTier(cnt) {
+  if (cnt >= 25) return 'bt1';
+  if (cnt >= 15) return 'bt2';
+  if (cnt >= 9)  return 'bt3';
+  if (cnt >= 5)  return 'bt4';
+  return 'bt5';
+}
+
+function rankClass(r) {
+  if (r === 1) return 'rank-1';
+  if (r === 2) return 'rank-2';
+  if (r === 3) return 'rank-3';
+  return 'rank-default';
+}
+
+const tbody = document.getElementById('tbody');
+const mobileList = document.getElementById('mobileList');
+
+const stripeColor = {
+  bt1: 'linear-gradient(90deg,#9b2828,#c94040)',
+  bt2: 'linear-gradient(90deg,#b86020,#d89040)',
+  bt3: 'linear-gradient(90deg,#c0981a,#d8b840)',
+  bt4: 'linear-gradient(90deg,#2a7a50,#48a870)',
+  bt5: 'linear-gradient(90deg,#1a6080,#3090b0)',
+};
+
+rows.forEach(d => {
+  const pct  = Math.round((d.cnt / MAX) * 100);
+  const ks   = kwStyle[d.ansType] || kwStyle.other;
+  const tier = barTier(d.cnt);
+
+  /* 데스크톱 테이블 행 */
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="col-rank tc"><span class="rank-badge ${rankClass(d.r)}">${d.r}</span></td>
+    <td class="col-choice">
+      <span class="choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="choice-desc">${d.desc}</span>` : ''}
+    </td>
+    <td class="col-kw"><span class="kw-tag" style="${ks}">${d.kw}</span></td>
+    <td class="col-ans"><span class="ans-tag ans-${d.ansType}">${d.ans}</span></td>
+    <td class="col-bar">
+      <div class="bar-row">
+        <span class="bar-num">${d.cnt}</span>
+        <div class="bar-track">
+          <div class="bar-fill ${tier}" style="width:${pct}%"></div>
+        </div>
+      </div>
+    </td>`;
+  tbody.appendChild(tr);
+
+  /* 모바일 카드 */
+  const mc = document.createElement('div');
+  mc.className = 'm-card';
+  mc.innerHTML = `
+    <div class="m-card-stripe" style="background:${stripeColor[tier]}"></div>
+    <div class="m-card-head">
+      <span class="rank-badge ${rankClass(d.r)}">${d.r}</span>
+      <span class="kw-tag" style="${ks}">${d.kw}</span>
+      <span class="ans-tag ans-${d.ansType}" style="margin-left:auto">${d.ans}</span>
+    </div>
+    <div class="m-card-body">
+      <span class="m-choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="m-choice-desc">${d.desc}</span>` : ''}
+      <div class="m-card-foot">
+        <div class="m-tags"></div>
+        <div class="m-bar-wrap">
+          <span class="m-bar-num">${d.cnt}회</span>
+          <div class="m-bar-track">
+            <div class="m-bar-fill ${tier}" style="width:${pct}%"></div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  mobileList.appendChild(mc);
+});
+</script>
+</body>
+</html>

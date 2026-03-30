@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조선시대 핵심 키워드 빈출표</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f9f6ef;
+    --paper2: #f1ece0;
+    --paper3: #e8e0ce;
+    --ink: #1c160c;
+    --ink2: #3a3020;
+    --ink3: #7c6e55;
+    --ink4: #b0a080;
+    --red: #9b2828;
+    --red2: #c94040;
+    --amber: #b87820;
+    --amber2: #d4a030;
+    --teal: #1a6060;
+    --teal2: #2a8070;
+    --border: #d0c4aa;
+    --border2: #e4dac8;
+    --shadow: rgba(28, 22, 12, 0.10);
+    --shadow2: rgba(28, 22, 12, 0.05);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at 15% 10%, rgba(184,120,32,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 85% 90%, rgba(26,96,96,0.05) 0%, transparent 60%);
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 48px 20px 72px;
+  }
+
+  .page-header { max-width: 1120px; margin: 0 auto 36px; position: relative; }
+
+  .header-inner {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; padding-bottom: 18px; border-bottom: 2px solid var(--border);
+  }
+
+  .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .eyebrow-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; }
+  .eyebrow-text { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); }
+
+  h1 { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 30px; font-weight: 800; color: var(--ink); line-height: 1.25; letter-spacing: -0.3px; }
+  h1 em { font-style: normal; color: var(--red); border-bottom: 2.5px solid var(--amber2); }
+
+  .header-sub { margin-top: 7px; font-size: 12.5px; color: var(--ink3); font-weight: 400; letter-spacing: 0.2px; }
+
+  .header-right { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding-bottom: 4px; }
+
+  .chip { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 7px 16px; text-align: center; box-shadow: 0 2px 6px var(--shadow2); }
+  .chip-num { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 18px; font-weight: 700; color: var(--red); display: block; line-height: 1; }
+  .chip-label { font-size: 10.5px; color: var(--ink3); margin-top: 3px; white-space: nowrap; }
+
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+  .legend-title { font-size: 11px; color: var(--ink4); font-weight: 500; margin-right: 2px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--ink3); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ── TABLE CARD ── */
+  .card { max-width: 1120px; margin: 0 auto; background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px var(--shadow2), 0 8px 32px var(--shadow); }
+
+  .card-top-stripe { height: 4px; background: linear-gradient(90deg, var(--red) 0%, var(--red2) 20%, var(--amber) 40%, var(--amber2) 55%, var(--teal) 75%, var(--teal2) 100%); }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead tr { background: linear-gradient(180deg, #22180a 0%, #1a1208 100%); }
+  thead th { padding: 13px 14px; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; font-weight: 700; color: #d8cbb0; letter-spacing: 0.8px; text-align: left; white-space: nowrap; border-right: 1px solid rgba(255,255,255,0.06); }
+  thead th:last-child { border-right: none; }
+  thead th.tc { text-align: center; }
+
+  tbody tr { border-bottom: 1px solid var(--border2); transition: background 0.12s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--paper2); }
+  tbody tr:hover { background: #ede4d0; }
+
+  td { padding: 11px 14px; font-size: 13px; vertical-align: middle; border-right: 1px solid var(--border2); }
+  td:last-child { border-right: none; }
+
+  /* ── RANK ── */
+  .col-rank { width: 52px; min-width: 52px; text-align: center; }
+  .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; font-size: 11.5px; font-weight: 700; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; }
+  .rank-1  { background: #f5e6a8; color: #7a5800; border: 1.5px solid #c8a030; }
+  .rank-2  { background: #e8e8e8; color: #505050; border: 1.5px solid #a8a8a8; }
+  .rank-3  { background: #f5d8b8; color: #7a3a08; border: 1.5px solid #c07840; }
+  .rank-default { background: transparent; color: var(--ink3); border: 1px solid var(--border); font-size: 11px; }
+
+  /* ── CHOICE ── */
+  .col-choice { min-width: 280px; max-width: 400px; line-height: 1.65; color: var(--ink2); font-size: 12.5px; }
+  .choice-main { display: block; }
+  .choice-desc { display: block; font-size: 11.5px; color: var(--ink3); line-height: 1.6; margin-top: 6px; padding: 5px 8px; background: var(--paper2); border-left: 2.5px solid var(--border); border-radius: 0 4px 4px 0; }
+
+  /* ── KEYWORD TAG ── */
+  .col-kw { width: 140px; min-width: 120px; }
+  .kw-tag { display: inline-block; padding: 4px 10px; border-radius: 5px; font-size: 12px; font-weight: 600; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; white-space: nowrap; letter-spacing: 0.2px; }
+
+  /* ── ANSWER TAG ── */
+  .col-ans { width: 150px; min-width: 130px; }
+  .ans-tag { display: inline-block; padding: 3px 9px; border-radius: 4px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+
+  /* 조선시대 정답 색상 */
+  .ans-joseon    { background: #f0e8d0; color: #5a3808; border: 1px solid #d0a850; }
+  .ans-early     { background: #e8e0f8; color: #3a1878; border: 1px solid #b098d8; }
+  .ans-mid       { background: #d8f0e8; color: #1a5038; border: 1px solid #80c0a0; }
+  .ans-late      { background: #f8e8d8; color: #6a3808; border: 1px solid #d8a870; }
+  .ans-war       { background: #ffe0e0; color: #7a1818; border: 1px solid #d89090; }
+  .ans-sijong    { background: #e0f0f8; color: #1a3868; border: 1px solid #80b0d8; }
+  .ans-person    { background: #f8e8f0; color: #682050; border: 1px solid #d8a8c0; }
+  .ans-organ     { background: #e8f0d8; color: #284808; border: 1px solid #90b870; }
+  .ans-law       { background: #f0f0e0; color: #484808; border: 1px solid #c0c080; }
+  .ans-scholar   { background: #f0e0f8; color: #581870; border: 1px solid #c090d8; }
+  .ans-other     { background: #eeeeee; color: #404040; border: 1px solid #cccccc; }
+
+  /* ── BAR ── */
+  .col-bar { min-width: 180px; width: 210px; }
+  .bar-row { display: flex; align-items: center; gap: 9px; }
+  .bar-num { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 700; min-width: 22px; text-align: right; color: var(--red); }
+  .bar-track { flex: 1; height: 9px; background: var(--paper2); border-radius: 5px; overflow: hidden; border: 1px solid var(--border); }
+  .bar-fill { height: 100%; border-radius: 5px; }
+  .bt1 { background: linear-gradient(90deg, #9b2828, #c94040); }
+  .bt2 { background: linear-gradient(90deg, #b86020, #d89040); }
+  .bt3 { background: linear-gradient(90deg, #c0981a, #d8b840); }
+  .bt4 { background: linear-gradient(90deg, #2a7a50, #48a870); }
+  .bt5 { background: linear-gradient(90deg, #1a6080, #3090b0); }
+
+  .footer { max-width: 1120px; margin: 22px auto 0; font-size: 11px; color: var(--ink4); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  /* ── MOBILE CARD LIST ── */
+  .mobile-list { display: none; }
+
+  .m-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow2);
+    margin-bottom: 12px;
+  }
+
+  .m-card-stripe { height: 4px; }
+
+  .m-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 8px;
+  }
+
+  .m-card-body {
+    padding: 0 14px 14px;
+  }
+
+  .m-choice-main {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink2);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .m-choice-desc {
+    display: block;
+    font-size: 12px;
+    color: var(--ink3);
+    line-height: 1.65;
+    padding: 7px 10px;
+    background: var(--paper2);
+    border-left: 2.5px solid var(--border);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 10px;
+  }
+
+  .m-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .m-tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+  .m-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+
+  .m-bar-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    min-width: 28px;
+    text-align: right;
+  }
+
+  .m-bar-track {
+    width: 80px;
+    height: 8px;
+    background: var(--paper2);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .m-bar-fill { height: 100%; border-radius: 5px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    body { padding: 28px 14px 60px; font-size: 13px; }
+    h1 { font-size: 22px; }
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .header-right { gap: 8px; }
+    .chip { padding: 6px 12px; }
+    .chip-num { font-size: 16px; }
+    .legend { gap: 8px; margin-top: 12px; }
+    .legend-item { font-size: 10.5px; }
+    /* 테이블 숨기고 카드 리스트 표시 */
+    .card { display: none; }
+    .mobile-list { display: block; max-width: 1120px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="eyebrow">
+        <div class="eyebrow-dot"></div>
+        <span class="eyebrow-text">한국사능력검정시험 대비 학습자료</span>
+      </div>
+      <h1>조선시대 <em>핵심 키워드</em> 빈출 선택지</h1>
+      <p class="header-sub">실제 기출 선택지 분석 · 핵심 키워드 빈도 기준 상위 50개 항목</p>
+    </div>
+    <div class="header-right">
+      <div class="chip"><span class="chip-num">1,259</span><div class="chip-label">총 기출 선택지</div></div>
+      <div class="chip"><span class="chip-num">50</span><div class="chip-label">핵심 키워드</div></div>
+      <div class="chip"><span class="chip-num">29</span><div class="chip-label">최고 출제횟수</div></div>
+    </div>
+  </div>
+  <div class="legend">
+    <span class="legend-title">정답 구분 →</span>
+    <div class="legend-item"><div class="legend-dot" style="background:#5a3808;border:1px solid #d0a850"></div>조선 (국가)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3a1878;border:1px solid #b098d8"></div>조선 전기 왕</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a5038;border:1px solid #80c0a0"></div>조선 중기 왕</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6a3808;border:1px solid #d8a870"></div>조선 후기</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#7a1818;border:1px solid #d89090"></div>전쟁·사건</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a3868;border:1px solid #80b0d8"></div>세종</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#682050;border:1px solid #d8a8c0"></div>인물</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#284808;border:1px solid #90b870"></div>기관·제도</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#484808;border:1px solid #c0c080"></div>법전·정책</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#581870;border:1px solid #c090d8"></div>실학·학문</div>
+  </div>
+</header>
+
+<div class="card">
+  <div class="card-top-stripe"></div>
+  <table>
+    <thead>
+      <tr>
+        <th class="tc">순위</th>
+        <th>대표 선택지</th>
+        <th>핵심 키워드</th>
+        <th>정답</th>
+        <th>출제횟수</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="mobile-list" id="mobileList"></div>
+
+<footer class="footer">
+  <span>출처 : 한국사능력검정시험 기출문제 &nbsp;|&nbsp; 총 1,259개 선택지 · 핵심 키워드 분석</span>
+  <span>빈도 기준 내림차순 정렬 (1위 = 최다 출제)</span>
+</footer>
+
+<script>
+const MAX = 29;
+
+const rows = [
+  { r:1,  cnt:29, kw:"훈민정음",         ans:"세종",      ansType:"sijong",
+    c1:"훈민정음을 창제하여 백성들이 문자를 쉽게 익히도록 하였다.",
+    desc:"세종은 1443년 우리말을 표기하기 위한 독창적인 문자 체계인 훈민정음을 창제하고, 1446년 해례본과 함께 반포하였다." },
+  { r:2,  cnt:29, kw:"4군 6진",          ans:"세종",      ansType:"sijong",
+    c1:"김종서가 두만강 일대에 6진을 개척하였다.",
+    desc:"세종 때 최윤덕이 압록강 상류에 4군을 설치하고, 김종서가 두만강 일대에 6진을 개척하여 현재의 한반도 국경선 형태를 확립하였다." },
+  { r:3,  cnt:27, kw:"초계문신제",        ans:"정조",      ansType:"mid",
+    c1:"문신을 재교육하기 위한 초계문신제를 실시하였다.",
+    desc:"정조는 37세 이하의 당하관 문신을 선발하여 규장각에서 재교육하는 초계문신제를 시행함으로써 왕권 강화와 인재 양성을 동시에 추구하였다." },
+  { r:4,  cnt:25, kw:"도고",             ans:"조선 후기",  ansType:"late",
+    c1:"독점적 도매상인인 도고가 출현하였다.",
+    desc:"조선 후기에는 상품 화폐 경제의 발달로 특정 물품을 독점 매입하고 판매하는 도고 상인이 등장하여 유통 경제를 주도하였다." },
+  { r:5,  cnt:22, kw:"경국대전",         ans:"성종",      ansType:"early",
+    c1:"조선의 기본 법전인 경국대전을 완성하였다.",
+    desc:"성종은 세조 때부터 편찬하기 시작한 경국대전을 1485년 완성하여 반포함으로써 조선의 통치 체제와 유교적 법질서를 확립하였다." },
+  { r:6,  cnt:22, kw:"의병",             ans:"임진왜란",   ansType:"war",
+    c1:"곽재우, 고경명 등이 의병장으로 활약하였다.",
+    desc:"임진왜란 때 전국 각지에서 자발적으로 의병이 봉기하였으며, 곽재우(의령)·고경명(전라도)·조헌(충청도)·정문부(함경도) 등이 각지에서 활약하였다." },
+  { r:7,  cnt:20, kw:"탕평비",           ans:"영조",      ansType:"mid",
+    c1:"붕당 정치의 폐해를 경계하기 위해 탕평비를 건립하였다.",
+    desc:"영조는 성균관 앞에 탕평비를 세워 편당 없이 공평하게 인재를 등용하겠다는 탕평 의지를 천명하고, 노론·소론의 균형 등용을 실시하였다." },
+  { r:8,  cnt:17, kw:"직전법",           ans:"세조",      ansType:"early",
+    c1:"현직 관리에게만 수조권을 지급하는 직전법을 시행하였다.",
+    desc:"세조는 1466년 현직 관리에게만 수조지를 지급하는 직전법을 시행하여 세습되던 수신전·휼양전을 폐지하고 국가 재정을 강화하였다." },
+  { r:9,  cnt:16, kw:"승정원",           ans:"승정원",    ansType:"organ",
+    c1:"왕의 비서 기관으로 왕명의 출납을 관장하였다.",
+    desc:"승정원은 왕명의 출납을 담당한 왕의 비서 기관으로 은대(銀臺)라고도 불렸으며, 도승지를 수장으로 좌·우승지 등 6명의 승지가 6조를 각각 분담하였다." },
+  { r:10, cnt:16, kw:"균역법",           ans:"균역법",    ansType:"law",
+    c1:"재정을 보충하기 위해 지주에게 결작을 부과하였다.",
+    desc:"영조는 1750년 군포 부담을 2필에서 1필로 줄이는 균역법을 시행하였으며, 부족한 재원을 충당하기 위해 결작·선무군관포·어염세·선박세를 추가로 거두었다." },
+  { r:11, cnt:14, kw:"나선 정벌",        ans:"효종",      ansType:"mid",
+    c1:"나선 정벌에 조총 부대를 파견하였다.",
+    desc:"효종 때 청의 요청으로 변급(1차)·신류(2차)가 이끄는 조총 부대를 흑룡강 유역에 파견하여 러시아군과 전투를 벌인 나선 정벌에 참전하였다." },
+  { r:12, cnt:13, kw:"홍문관",           ans:"홍문관",    ansType:"organ",
+    c1:"사헌부, 사간원과 함께 3사로 불렸다.",
+    desc:"성종 때 설치된 홍문관은 왕의 학문 자문·경연 담당 기관으로 옥당(玉堂)이라고도 불렸으며, 사헌부(감찰)·사간원(간쟁)과 함께 3사를 이루었다." },
+  { r:13, cnt:13, kw:"사르후 전투",      ans:"광해군",    ansType:"mid",
+    c1:"강홍립 부대가 사르후 전투에 참전하였다.",
+    desc:"광해군은 명의 원군 요청에 따라 강홍립을 도원수로 1만 3천 명의 군대를 파견하였으나, 강홍립은 후금에 투항하는 중립 외교를 실행하였다." },
+  { r:14, cnt:13, kw:"대동법",           ans:"대동법",    ansType:"law",
+    c1:"관청에 물품을 조달하는 공인이 등장하였다.",
+    desc:"광해군 때 경기도에 처음 시행된 대동법은 집집마다 부과하던 공물을 토지 결수에 따라 쌀·포·동전으로 납부하게 하였으며, 이로써 공인이 등장하였다." },
+  { r:15, cnt:13, kw:"의산문답",         ans:"홍대용",    ansType:"scholar",
+    c1:"의산문답에서 무한 우주론을 주장하였다.",
+    desc:"홍대용은 의산문답에서 지전설을 주장하고 무한 우주론을 전개하며 중국 중심의 세계관을 비판하였으며, 기술 혁신을 통한 부국강병을 역설하였다." },
+  { r:16, cnt:12, kw:"금위영",           ans:"숙종",      ansType:"mid",
+    c1:"국왕의 호위와 수도 방어를 위해 금위영을 창설하였다.",
+    desc:"숙종은 훈련도감·어영청과 함께 수도 방어를 위해 금위영을 설치하여 5군영 체제를 완성하였으며, 금위영은 왕의 호위와 도성 방어를 담당하였다." },
+  { r:17, cnt:12, kw:"북학의",           ans:"박제가",    ansType:"scholar",
+    c1:"북학의에서 절약보다 적절한 소비를 권장하였다.",
+    desc:"박지원의 제자인 박제가는 북학의에서 청의 선진 문물을 적극 수용할 것을 주장하며 수레·선박 이용과 소비 촉진을 강조하였으며, 규장각 검서관을 지냈다." },
+  { r:18, cnt:11, kw:"강화학파",         ans:"정제두",    ansType:"scholar",
+    c1:"양명학을 연구하여 강화학파를 형성하였다.",
+    desc:"정제두는 주자학 중심의 학문 풍토에서 양명학을 체계적으로 연구하여 강화학파를 형성하였으며, 지행합일(知行合一)을 강조하는 양명학의 실천성을 부각시켰다." },
+  { r:19, cnt:11, kw:"신해통공",         ans:"정조",      ansType:"mid",
+    c1:"육의전을 제외한 시전 상인의 금난전권이 폐지되었다.",
+    desc:"정조는 1791년 신해통공을 실시하여 육의전을 제외한 시전 상인의 금난전권을 폐지함으로써 사상(私商)의 자유로운 상업 활동을 허용하였다." },
+  { r:20, cnt:10, kw:"계미자",           ans:"태종",      ansType:"early",
+    c1:"주자소를 설치하여 계미자를 주조하였다.",
+    desc:"태종은 주자소를 설치하고 동활자인 계미자를 주조하여 활판 인쇄의 기반을 마련하였으며, 이는 서적 보급 확대와 문화 발전에 기여하였다." },
+  { r:21, cnt:10, kw:"혼일강리역대국도지도", ans:"태종",   ansType:"early",
+    c1:"세계 지도인 혼일강리역대국도지도가 제작되었다.",
+    desc:"태종 때 권근·이회 등이 제작한 혼일강리역대국도지도는 아프리카와 유럽까지 포함한 동양 최고의 세계 지도로, 한국 지도학 발전의 선구적 업적이다." },
+  { r:22, cnt:10, kw:"악학궤범",         ans:"성종",      ansType:"early",
+    c1:"음악 이론 등을 집대성한 악학궤범을 완성하였다.",
+    desc:"성종 때 성현 등이 편찬한 악학궤범은 음악 이론·악기·무용·의상 등 음악 전반에 관한 내용을 집대성한 책으로, 예악 질서 확립의 기초가 되었다." },
+  { r:23, cnt:10, kw:"현량과",           ans:"조광조",    ansType:"person",
+    c1:"소학의 보급과 현량과 실시를 주장하였다.",
+    desc:"조광조는 중종의 신임을 받아 소격서 폐지·소학 보급·현량과 실시 등 도학 정치를 추진하였으나, 기묘사화(1519)로 훈구 세력에 의해 제거되었다." },
+  { r:24, cnt:10, kw:"농사직설",         ans:"세종",      ansType:"sijong",
+    c1:"각지의 농법을 작물별로 정리한 농사직설을 편찬하였다.",
+    desc:"세종은 각 지방의 농업 경험을 수집하여 우리 풍토에 맞는 농법을 작물별로 정리한 농사직설을 편찬하여 농업 생산력 향상을 도모하였다." },
+  { r:25, cnt:10, kw:"성균관",           ans:"성균관",    ansType:"organ",
+    c1:"대사성을 수장으로 좨주, 직강 등의 관직을 두었다.",
+    desc:"조선 최고의 국립 교육 기관인 성균관은 소과(생진과) 합격자에게 입학 자격을 부여하였으며, 대성전(제향)·명륜당(강학)을 중심으로 운영되었다." },
+  { r:26, cnt:10, kw:"비변사",           ans:"비변사",    ansType:"organ",
+    c1:"을묘왜변을 계기로 상설 기구화되었다.",
+    desc:"중종 때 삼포왜란을 계기로 설치된 비변사는 을묘왜변(명종)으로 상설 기구가 되었고, 임진왜란 이후 국정 전반을 총괄하는 최고 기구로 확대되었다." },
+  { r:27, cnt:10, kw:"이괄의 난",        ans:"인조",      ansType:"war",
+    c1:"이괄이 이끈 반란군이 도성을 장악하였다.",
+    desc:"1624년 인조반정의 논공행상에 불만을 품은 이괄이 반란을 일으켜 한때 한성을 점령하였으며, 인조가 공주로 피란하는 사태를 초래하였다." },
+  { r:28, cnt:9,  kw:"담배",             ans:"조선 후기",  ansType:"late",
+    c1:"담배, 면화, 생강 등 상품 작물을 재배하였다.",
+    desc:"조선 후기에는 모내기법의 보급으로 이모작이 가능해지면서 쌀 외에 담배·면화·생강·인삼 등 상품 작물을 재배하는 농민이 늘어났다." },
+  { r:29, cnt:9,  kw:"의금부",           ans:"의금부",    ansType:"organ",
+    c1:"국왕 직속 사법 기구로 반역죄, 강상죄 등을 처결하였다.",
+    desc:"의금부는 왕명으로 반역·강상의 죄를 범한 중죄인을 다스리는 국왕 직속 특별 사법 기구로, 삼성추국(의금부·사헌부·형조)의 구성원이기도 하였다." },
+  { r:30, cnt:9,  kw:"한전론",           ans:"이익",      ansType:"scholar",
+    c1:"성호사설에서 토지 매매를 제한하는 한전론을 주장하였다.",
+    desc:"이익은 성호사설과 곽우록에서 한 가정의 생계에 필요한 최소 토지를 영업전으로 설정하고 매매를 제한하는 한전론을 주장하여 토지 겸병의 폐단을 시정하려 하였다." },
+  { r:31, cnt:9,  kw:"속대전",           ans:"영조",      ansType:"mid",
+    c1:"통치 규범을 재정비한 속대전을 편찬하였다.",
+    desc:"영조는 경국대전 반포 이후 추가된 법령을 정리하여 속대전을 편찬하였으며, 이후 정조 때 대전통편이, 고종 때 대전회통이 편찬되어 법전 체계가 완성되었다." },
+  { r:32, cnt:8,  kw:"거중기",           ans:"정약용",    ansType:"scholar",
+    c1:"기기도설을 참고하여 거중기를 설계하였다.",
+    desc:"정약용은 청의 기기도설을 참고하여 거중기를 설계하였으며, 이 기계는 수원 화성 축조 시 활용되어 공사 기간 단축과 비용 절감에 크게 기여하였다." },
+  { r:33, cnt:8,  kw:"규장각",           ans:"규장각",    ansType:"organ",
+    c1:"서얼 출신 학자들이 검서관에 등용되었다.",
+    desc:"정조는 규장각을 설치하여 학문 연구와 정책 자문 기능을 담당하게 하였으며, 박제가·이덕무 등 서얼 출신 학자들을 검서관으로 등용하여 탕평을 실천하였다." },
+  { r:34, cnt:8,  kw:"송상·만상",        ans:"조선 후기",  ansType:"late",
+    c1:"송상, 만상이 대청 무역으로 부를 축적하였다.",
+    desc:"조선 후기에 개성 상인(송상)은 인삼 무역으로, 의주 상인(만상)은 대청 무역으로 거대한 부를 축적하였으며, 이들은 전국적인 유통망을 장악하였다." },
+  { r:35, cnt:8,  kw:"장용영",           ans:"정조",      ansType:"mid",
+    c1:"국왕의 친위 부대인 장용영이 창설되었다.",
+    desc:"정조는 왕권 강화를 위해 1793년 장용영을 설치하여 한성의 내영과 수원 화성의 외영으로 나누어 운영하였으나, 정조 사후 순조 때 혁파되었다." },
+  { r:36, cnt:7,  kw:"동국문헌비고",      ans:"영조",      ansType:"mid",
+    c1:"역대 문물 제도를 정리한 동국문헌비고가 편찬되었다.",
+    desc:"영조 때 홍봉한 등이 편찬한 동국문헌비고는 역대 문물 제도를 분류·정리한 유서(類書)로, 정조 때 증보되어 이후 만기요람 편찬의 토대가 되었다." },
+  { r:37, cnt:7,  kw:"계해약조",         ans:"세종",      ansType:"sijong",
+    c1:"제한된 범위의 무역을 허용한 계해약조가 체결되었다.",
+    desc:"세종 때 이종무의 쓰시마 정벌 이후 1443년 체결된 계해약조는 세견선 50척·세사미두 200석으로 일본과의 교역을 제한적으로 허용한 조약이다." },
+  { r:38, cnt:7,  kw:"동의보감",         ans:"광해군",    ansType:"mid",
+    c1:"전란의 피해를 복구하고 동의보감을 간행하였다.",
+    desc:"허준이 선조 때부터 편찬을 시작한 동의보감은 광해군 때 완성·간행되었으며, 우리 전통 한의학을 집대성한 의학 백과사전으로 유네스코 세계기록유산에 등재되어 있다." },
+  { r:39, cnt:7,  kw:"양반전",           ans:"박지원",    ansType:"scholar",
+    c1:"양반의 허례와 무능을 풍자한 양반전을 지었다.",
+    desc:"박지원은 열하일기·양반전·허생전 등을 저술하여 청의 선진 문물 수용을 주장하고 양반 계층의 허위와 무능을 풍자하였으며, 북학파의 대표적 인물이다." },
+  { r:40, cnt:6,  kw:"진주성 전투",      ans:"임진왜란",   ansType:"war",
+    c1:"김시민이 진주성 전투에서 크게 승리하였다.",
+    desc:"1592년 10월 진주 목사 김시민은 불과 3,800명의 병력으로 2만여 명의 왜군을 진주성에서 격퇴하였으며, 이는 임진왜란 3대 대첩의 하나이다." },
+  { r:41, cnt:6,  kw:"쓰시마 정벌",      ans:"세종",      ansType:"sijong",
+    c1:"이종무가 왜구의 근거지인 쓰시마섬을 정벌하였다.",
+    desc:"세종은 1419년 삼군도체찰사 이종무에게 227척의 군선과 1만 7천 명의 병력으로 왜구의 본거지인 쓰시마섬(대마도)을 정벌하게 하였다." },
+  { r:42, cnt:6,  kw:"열하일기",         ans:"박지원",    ansType:"scholar",
+    c1:"열하일기에서 수레와 선박의 필요성을 서술하였다.",
+    desc:"박지원은 1780년 청 건륭제의 칠순 연회에 동행하여 견문한 내용을 열하일기에 담았으며, 수레·선박 이용과 상공업 진흥을 통한 부국강병을 역설하였다." },
+  { r:43, cnt:6,  kw:"불씨잡변",         ans:"정도전",    ansType:"person",
+    c1:"불씨잡변을 지어 불교를 비판하였다.",
+    desc:"정도전은 불씨잡변에서 불교의 교리를 조목조목 비판하고 유학의 우월성을 논증하였으며, 조선경국전 편찬을 통해 조선의 통치 체계 수립에도 크게 기여하였다." },
+  { r:44, cnt:6,  kw:"국조오례의",        ans:"성종",      ansType:"early",
+    c1:"국조오례의가 완성되어 국가 의례가 정비되었다.",
+    desc:"성종 때 완성된 국조오례의는 길례·가례·빈례·군례·흉례의 오례를 체계화한 의례서로, 조선의 유교적 국가 의례 체계를 완성하는 데 기여하였다." },
+  { r:45, cnt:6,  kw:"남한산성",         ans:"병자호란",   ansType:"war",
+    c1:"왕이 도성을 떠나 남한산성으로 피란하였다.",
+    desc:"1636년 병자호란 당시 인조는 후금(청)의 군대를 피해 남한산성으로 피신하여 47일간 항전하였으나, 결국 삼전도에서 청 태종에게 항복하였다." },
+  { r:46, cnt:5,  kw:"환국",             ans:"숙종",      ansType:"mid",
+    c1:"경신환국 등 여러 차례 환국이 발생하였다.",
+    desc:"숙종 때 경신환국(남인 축출)·기사환국(서인 몰락)·갑술환국(남인 재축출)이 잇따라 일어났으며, 이는 왕이 붕당 간 세력 균형을 조절하는 방식이었다." },
+  { r:47, cnt:5,  kw:"공인",             ans:"조선 후기",  ansType:"late",
+    c1:"관청에 물품을 조달하는 공인이 활동하였다.",
+    desc:"대동법 시행으로 등장한 공인은 관청으로부터 공가(公價)를 미리 받아 필요한 물품을 조달하는 어용 상인으로, 상품 화폐 경제 발달에 크게 기여하였다." },
+  { r:48, cnt:5,  kw:"백두산정계비",      ans:"숙종",      ansType:"mid",
+    c1:"청과 국경을 정한 백두산정계비를 건립하였다.",
+    desc:"1712년 숙종 때 청의 오라총관 목극등과 조선 관리들이 백두산 일대를 조사하여 압록강·토문강을 국경으로 확정하는 백두산정계비를 세웠다." },
+  { r:49, cnt:5,  kw:"진흥왕 순수비",     ans:"김정희",    ansType:"scholar",
+    c1:"금석과안록에서 북한산비가 진흥왕 순수비임을 고증하였다.",
+    desc:"추사 김정희는 금석학을 연구하여 북한산비가 신라 진흥왕의 순수비임을 고증하였으며, 독창적인 서체인 추사체를 창안하고 세한도 등의 작품을 남겼다." },
+  { r:50, cnt:5,  kw:"훈련도감",         ans:"임진왜란",   ansType:"war",
+    c1:"포수, 사수, 살수의 삼수병으로 편제되었다.",
+    desc:"임진왜란 중 류성룡의 건의로 설치된 훈련도감은 포수·사수·살수의 삼수병으로 편제된 조선 최초의 상비군으로, 이후 5군영 체제의 핵심 군영이 되었다." },
+];
+
+const kwStyle = {
+  joseon:  "background:#f0e8d0;color:#5a3808;border:1px solid #d0a850",
+  early:   "background:#e8e0f8;color:#3a1878;border:1px solid #b098d8",
+  mid:     "background:#d8f0e8;color:#1a5038;border:1px solid #80c0a0",
+  late:    "background:#f8e8d8;color:#6a3808;border:1px solid #d8a870",
+  war:     "background:#ffe0e0;color:#7a1818;border:1px solid #d89090",
+  sijong:  "background:#e0f0f8;color:#1a3868;border:1px solid #80b0d8",
+  person:  "background:#f8e8f0;color:#682050;border:1px solid #d8a8c0",
+  organ:   "background:#e8f0d8;color:#284808;border:1px solid #90b870",
+  law:     "background:#f0f0e0;color:#484808;border:1px solid #c0c080",
+  scholar: "background:#f0e0f8;color:#581870;border:1px solid #c090d8",
+  other:   "background:#eeeeee;color:#404040;border:1px solid #cccccc",
+};
+
+function barTier(cnt) {
+  if (cnt >= 22) return 'bt1';
+  if (cnt >= 14) return 'bt2';
+  if (cnt >= 9)  return 'bt3';
+  if (cnt >= 6)  return 'bt4';
+  return 'bt5';
+}
+
+function rankClass(r) {
+  if (r === 1) return 'rank-1';
+  if (r === 2) return 'rank-2';
+  if (r === 3) return 'rank-3';
+  return 'rank-default';
+}
+
+const tbody = document.getElementById('tbody');
+const mobileList = document.getElementById('mobileList');
+
+const stripeColor = {
+  bt1: 'linear-gradient(90deg,#9b2828,#c94040)',
+  bt2: 'linear-gradient(90deg,#b86020,#d89040)',
+  bt3: 'linear-gradient(90deg,#c0981a,#d8b840)',
+  bt4: 'linear-gradient(90deg,#2a7a50,#48a870)',
+  bt5: 'linear-gradient(90deg,#1a6080,#3090b0)',
+};
+
+rows.forEach(d => {
+  const pct  = Math.round((d.cnt / MAX) * 100);
+  const ks   = kwStyle[d.ansType] || kwStyle.other;
+  const tier = barTier(d.cnt);
+
+  /* 데스크톱 테이블 행 */
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="col-rank tc"><span class="rank-badge ${rankClass(d.r)}">${d.r}</span></td>
+    <td class="col-choice">
+      <span class="choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="choice-desc">${d.desc}</span>` : ''}
+    </td>
+    <td class="col-kw"><span class="kw-tag" style="${ks}">${d.kw}</span></td>
+    <td class="col-ans"><span class="ans-tag ans-${d.ansType}">${d.ans}</span></td>
+    <td class="col-bar">
+      <div class="bar-row">
+        <span class="bar-num">${d.cnt}</span>
+        <div class="bar-track">
+          <div class="bar-fill ${tier}" style="width:${pct}%"></div>
+        </div>
+      </div>
+    </td>`;
+  tbody.appendChild(tr);
+
+  /* 모바일 카드 */
+  const mc = document.createElement('div');
+  mc.className = 'm-card';
+  mc.innerHTML = `
+    <div class="m-card-stripe" style="background:${stripeColor[tier]}"></div>
+    <div class="m-card-head">
+      <span class="rank-badge ${rankClass(d.r)}">${d.r}</span>
+      <span class="kw-tag" style="${ks}">${d.kw}</span>
+      <span class="ans-tag ans-${d.ansType}" style="margin-left:auto">${d.ans}</span>
+    </div>
+    <div class="m-card-body">
+      <span class="m-choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="m-choice-desc">${d.desc}</span>` : ''}
+      <div class="m-card-foot">
+        <div class="m-tags"></div>
+        <div class="m-bar-wrap">
+          <span class="m-bar-num">${d.cnt}회</span>
+          <div class="m-bar-track">
+            <div class="m-bar-fill ${tier}" style="width:${pct}%"></div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  mobileList.appendChild(mc);
+});
+</script>
+</body>
+</html>

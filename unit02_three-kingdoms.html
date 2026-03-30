@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>삼국시대 핵심 키워드 빈출표</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f9f6ef;
+    --paper2: #f1ece0;
+    --paper3: #e8e0ce;
+    --ink: #1c160c;
+    --ink2: #3a3020;
+    --ink3: #7c6e55;
+    --ink4: #b0a080;
+    --red: #9b2828;
+    --red2: #c94040;
+    --amber: #b87820;
+    --amber2: #d4a030;
+    --teal: #1a6060;
+    --teal2: #2a8070;
+    --sage: #3a6040;
+    --navy: #1c2c50;
+    --navy2: #2a4070;
+    --border: #d0c4aa;
+    --border2: #e4dac8;
+    --shadow: rgba(28, 22, 12, 0.10);
+    --shadow2: rgba(28, 22, 12, 0.05);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at 15% 10%, rgba(184,120,32,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 85% 90%, rgba(26,96,96,0.05) 0%, transparent 60%);
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 48px 20px 72px;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    max-width: 1120px;
+    margin: 0 auto 36px;
+    position: relative;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .header-left {}
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .eyebrow-dot {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+
+  .eyebrow-text {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  h1 {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--red);
+    border-bottom: 2.5px solid var(--amber2);
+  }
+
+  .header-sub {
+    margin-top: 7px;
+    font-size: 12.5px;
+    color: var(--ink3);
+    font-weight: 400;
+    letter-spacing: 0.2px;
+  }
+
+  /* Stats chips */
+  .header-right {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 4px;
+  }
+
+  .chip {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px var(--shadow2);
+  }
+
+  .chip-num {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--red);
+    display: block;
+    line-height: 1;
+  }
+
+  .chip-label {
+    font-size: 10.5px;
+    color: var(--ink3);
+    margin-top: 3px;
+    white-space: nowrap;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    align-items: center;
+  }
+
+  .legend-title {
+    font-size: 11px;
+    color: var(--ink4);
+    font-weight: 500;
+    margin-right: 2px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--ink3);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── TABLE CARD ── */
+  .card {
+    max-width: 1120px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 3px var(--shadow2),
+      0 8px 32px var(--shadow);
+  }
+
+  .card-top-stripe {
+    height: 4px;
+    background: linear-gradient(90deg,
+      var(--red) 0%, var(--red2) 20%,
+      var(--amber) 40%, var(--amber2) 55%,
+      var(--teal) 75%, var(--teal2) 100%);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  /* Head */
+  thead tr {
+    background: linear-gradient(180deg, #22180a 0%, #1a1208 100%);
+  }
+
+  thead th {
+    padding: 13px 14px;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #d8cbb0;
+    letter-spacing: 0.8px;
+    text-align: left;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  thead th:last-child { border-right: none; }
+  thead th.tc { text-align: center; }
+
+  /* Body */
+  tbody tr {
+    border-bottom: 1px solid var(--border2);
+    transition: background 0.12s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--paper2); }
+  tbody tr:hover { background: #ede4d0; }
+
+  td {
+    padding: 11px 14px;
+    font-size: 13px;
+    vertical-align: middle;
+    border-right: 1px solid var(--border2);
+  }
+
+  td:last-child { border-right: none; }
+
+  /* ── RANK ── */
+  .col-rank {
+    width: 52px;
+    min-width: 52px;
+    text-align: center;
+  }
+
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  }
+
+  .rank-1  { background: #f5e6a8; color: #7a5800; border: 1.5px solid #c8a030; }
+  .rank-2  { background: #e8e8e8; color: #505050; border: 1.5px solid #a8a8a8; }
+  .rank-3  { background: #f5d8b8; color: #7a3a08; border: 1.5px solid #c07840; }
+  .rank-default { background: transparent; color: var(--ink3); border: 1px solid var(--border); font-size: 11px; }
+
+  /* ── CHOICE ── */
+  .col-choice {
+    min-width: 280px;
+    max-width: 380px;
+    line-height: 1.65;
+    color: var(--ink2);
+    font-size: 12.5px;
+  }
+
+  .choice-main { display: block; }
+
+  .choice-sub {
+    display: block;
+    font-size: 11.5px;
+    color: var(--ink3);
+    margin-top: 2px;
+  }
+
+  .choice-desc {
+    display: block;
+    font-size: 11.5px;
+    color: var(--ink3);
+    line-height: 1.6;
+    margin-top: 6px;
+    padding: 5px 8px;
+    background: var(--paper2);
+    border-left: 2.5px solid var(--border);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ── KEYWORD TAG ── */
+  .col-kw {
+    width: 120px;
+    min-width: 100px;
+  }
+
+  .kw-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    white-space: nowrap;
+    letter-spacing: 0.2px;
+  }
+
+  /* ── ANSWER TAG ── */
+  .col-ans {
+    width: 150px;
+    min-width: 130px;
+  }
+
+  .ans-tag {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Answer color coding by category */
+  .ans-goguryeo  { background: #e0f0e8; color: #1a5030; border: 1px solid #90c8a8; }
+  .ans-baekje    { background: #fce8d4; color: #8b3010; border: 1px solid #e8b090; }
+  .ans-silla     { background: #eae0f8; color: #40206a; border: 1px solid #c0a0e0; }
+  .ans-gaya      { background: #d8f0f0; color: #0a5050; border: 1px solid #88c8c8; }
+  .ans-balhae    { background: #d8e8f8; color: #1a3068; border: 1px solid #88b0d8; }
+  .ans-unified   { background: #f8ecd4; color: #6a4008; border: 1px solid #d8b070; }
+  .ans-person    { background: #f8e8f0; color: #682050; border: 1px solid #d8a8c0; }
+  .ans-year      { background: #e8eef8; color: #203060; border: 1px solid #a0b4d8; }
+  .ans-event     { background: #f4ecd8; color: #5a4010; border: 1px solid #c8b080; }
+  .ans-other     { background: #eeeeee; color: #404040; border: 1px solid #cccccc; }
+
+  /* ── BAR ── */
+  .col-bar {
+    min-width: 180px;
+    width: 210px;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .bar-num {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    min-width: 22px;
+    text-align: right;
+    color: var(--red);
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 9px;
+    background: var(--paper2);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  /* Bar tiers */
+  .bt1 { background: linear-gradient(90deg, #9b2828, #c94040); }
+  .bt2 { background: linear-gradient(90deg, #b86020, #d89040); }
+  .bt3 { background: linear-gradient(90deg, #c0981a, #d8b840); }
+  .bt4 { background: linear-gradient(90deg, #2a7a50, #48a870); }
+  .bt5 { background: linear-gradient(90deg, #1a6080, #3090b0); }
+
+  /* ── FOOTER ── */
+  .footer {
+    max-width: 1120px;
+    margin: 22px auto 0;
+    font-size: 11px;
+    color: var(--ink4);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ── MOBILE CARD LIST ── */
+  .mobile-list { display: none; }
+
+  .m-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow2);
+    margin-bottom: 12px;
+  }
+
+  .m-card-stripe { height: 4px; }
+
+  .m-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 8px;
+  }
+
+  .m-card-body {
+    padding: 0 14px 14px;
+  }
+
+  .m-choice-main {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink2);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .m-choice-desc {
+    display: block;
+    font-size: 12px;
+    color: var(--ink3);
+    line-height: 1.65;
+    padding: 7px 10px;
+    background: var(--paper2);
+    border-left: 2.5px solid var(--border);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 10px;
+  }
+
+  .m-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .m-tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+  .m-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+
+  .m-bar-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    min-width: 28px;
+    text-align: right;
+  }
+
+  .m-bar-track {
+    width: 80px;
+    height: 8px;
+    background: var(--paper2);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .m-bar-fill { height: 100%; border-radius: 5px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    body { padding: 28px 14px 60px; font-size: 13px; }
+    h1 { font-size: 22px; }
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .header-right { gap: 8px; }
+    .chip { padding: 6px 12px; }
+    .chip-num { font-size: 16px; }
+    .legend { gap: 8px; margin-top: 12px; }
+    .legend-item { font-size: 10.5px; }
+    /* 테이블 숨기고 카드 리스트 표시 */
+    .card { display: none; }
+    .mobile-list { display: block; max-width: 1120px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="eyebrow">
+        <div class="eyebrow-dot"></div>
+        <span class="eyebrow-text">한국사능력검정시험 대비 학습자료</span>
+      </div>
+      <h1>삼국시대 <em>핵심 키워드</em> 빈출 선택지</h1>
+      <p class="header-sub">실제 기출 선택지 분석 · 핵심 키워드 빈도 기준 상위 50개 항목</p>
+    </div>
+    <div class="header-right">
+      <div class="chip"><span class="chip-num">843</span><div class="chip-label">총 기출 선택지</div></div>
+      <div class="chip"><span class="chip-num">50</span><div class="chip-label">핵심 키워드</div></div>
+      <div class="chip"><span class="chip-num">19</span><div class="chip-label">최고 출제횟수</div></div>
+    </div>
+  </div>
+  <div class="legend">
+    <span class="legend-title">정답 구분 →</span>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a5030;border:1px solid #90c8a8"></div>고구려</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#8b3010;border:1px solid #e8b090"></div>백제</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#40206a;border:1px solid #c0a0e0"></div>신라</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#0a5050;border:1px solid #88c8c8"></div>가야</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a3068;border:1px solid #88b0d8"></div>발해</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6a4008;border:1px solid #d8b070"></div>통일신라</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#682050;border:1px solid #d8a8c0"></div>인물</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#203060;border:1px solid #a0b4d8"></div>연도</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5a4010;border:1px solid #c8b080"></div>사건</div>
+  </div>
+</header>
+
+<div class="card">
+  <div class="card-top-stripe"></div>
+  <table>
+    <thead>
+      <tr>
+        <th class="tc">순위</th>
+        <th>대표 선택지</th>
+        <th>핵심 키워드</th>
+        <th>정답</th>
+        <th>출제횟수</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="mobile-list" id="mobileList"></div>
+
+<footer class="footer">
+  <span>출처 : 한국사능력검정시험 기출문제 &nbsp;|&nbsp; 총 843개 선택지 · 핵심 키워드 분석</span>
+  <span>빈도 기준 내림차순 정렬 (1위 = 최다 출제)</span>
+</footer>
+
+<script>
+const MAX = 19;
+
+/* ── DATA ── */
+const rows = [
+  { r:1,  cnt:19, kw:"안승",       ans:"문무왕",                    ansType:"person",
+    c1:"안승을 보덕왕으로 봉하였다.", c2:"안승이 보덕국의 왕으로 책봉되었다.",
+    desc:"문무왕은 고구려 부흥 운동 세력의 지도자 안승을 보덕왕으로 봉하여 당에 대항하는 세력을 포섭하였다." },
+  { r:2,  cnt:14, kw:"녹읍",       ans:"통일신라",                  ansType:"unified",
+    c1:"관료전을 지급하고 녹읍을 폐지하였다.", c2:"관료전이 지급되고 녹읍이 폐지되었다.",
+    desc:"신문왕은 귀족의 경제 기반인 녹읍을 폐지하고 관료전을 지급하여 왕권을 강화하였다." },
+  { r:3,  cnt:14, kw:"광평성",     ans:"궁예",                      ansType:"person",
+    c1:"광평성 등의 정치 기구를 마련하였다.", c2:"국호를 마진으로 바꾸고 도읍을 철원으로 옮겼다.",
+    desc:"궁예는 후고구려를 세운 뒤 광평성을 비롯한 중앙 관제를 정비하고 국호를 마진, 태봉으로 바꾸었다." },
+  { r:4,  cnt:14, kw:"솔빈부",     ans:"발해",                      ansType:"balhae",
+    c1:"솔빈부의 말이 특산품으로 수출되었다.", c2:"솔빈부의 말을 특산품으로 수출하였다.",
+    desc:"발해의 솔빈부는 말 생산으로 유명하였으며, 주변국과의 교역에서 주요 수출품으로 활용되었다." },
+  { r:5,  cnt:13, kw:"미륵사",     ans:"무왕",                      ansType:"person",
+    c1:"금마저에 미륵사를 창건하였다.", c2:"익산 미륵사지 석탑과 관련된 왕을 묻는 문제",
+    desc:"백제 무왕은 익산 금마저에 미륵사를 창건하였으며, 미륵사지 석탑은 현존하는 가장 오래된 석탑이다." },
+  { r:6,  cnt:13, kw:"살수대첩",   ans:"612년",                     ansType:"year",
+    c1:"을지문덕이 살수에서 수나라 군대에 대승을 거두었다.", c2:"수나라 군대가 살수에서 을지문덕에게 패배하였다.",
+    desc:"612년 을지문덕 장군은 살수(청천강)에서 수 양제의 30만 별동대를 유인·섬멸하는 대승을 거두었다." },
+  { r:7,  cnt:13, kw:"대야성",     ans:"642년",                     ansType:"year",
+    c1:"윤충이 군사를 이끌고 대야성을 함락시켰다.", c2:"백제가 신라의 대야성을 공격하여 함락하였다.",
+    desc:"642년 백제 의자왕이 보낸 장군 윤충이 신라의 대야성을 함락하고, 성주 김품석 부부를 살해하였다." },
+  { r:8,  cnt:13, kw:"청해진",     ans:"통일신라 (흥덕왕)",         ansType:"unified",
+    c1:"청해진을 설치하여 해상 무역을 전개하였다.", c2:"장보고의 건의로 청해진이 설치되었다.",
+    desc:"흥덕왕 때 장보고는 완도에 청해진을 설치하고 해적을 소탕하며 동아시아 해상 무역권을 장악하였다." },
+  { r:9,  cnt:13, kw:"황룡사",     ans:"신라 (선덕여왕)",           ansType:"silla",
+    c1:"자장의 건의로 황룡사 구층 목탑이 건립되었다.", c2:"황룡사 구층 목탑의 건립을 건의하였다.",
+    desc:"선덕여왕 때 승려 자장의 건의로 황룡사 구층 목탑이 세워졌으며, 주변 9개 나라의 침략을 막기 위한 호국 목적이었다." },
+  { r:10, cnt:12, kw:"22담로",     ans:"무령왕",                    ansType:"person",
+    c1:"지방의 22담로에 왕족을 파견하였다.", c2:"지방에 22담로를 두어 왕족을 파견하였다.",
+    desc:"백제 무령왕은 지방의 요충지 22곳에 담로를 설치하고 왕족을 파견하여 지방 통제력을 강화하였다." },
+  { r:11, cnt:12, kw:"골품제",     ans:"신라",                      ansType:"silla",
+    c1:"골품제가 실시되었다.", c2:"골품에 따라 관등 승진을 제한하였다.",
+    desc:"신라의 골품제는 혈통에 따라 사회적 신분을 구분한 제도로, 골품에 따라 관직·일상생활까지 엄격히 규제하였다." },
+  { r:12, cnt:12, kw:"독서삼품과", ans:"통일신라 (원성왕)",         ansType:"unified",
+    c1:"독서삼품과를 시행하였다.", c2:"관리 선발을 위해 독서삼품과를 시행하였다.",
+    desc:"원성왕은 유교 경전의 이해 수준에 따라 관리를 3등급으로 나누어 채용하는 독서삼품과를 시행하였다." },
+  { r:13, cnt:12, kw:"이사부",     ans:"신라 지증왕",               ansType:"silla",
+    c1:"이사부가 우산국을 복속시켰다.", c2:"이사부를 보내 우산국을 복속하고 영토를 확장하였다.",
+    desc:"지증왕 13년(512) 이사부는 나무 사자를 이용한 기략으로 우산국(울릉도)을 복속하여 신라 영토로 편입하였다." },
+  { r:14, cnt:12, kw:"김흠돌",     ans:"신문왕",                    ansType:"person",
+    c1:"김흠돌의 난이 진압되었다.", c2:"김흠돌의 반란을 진압하고 왕권을 강화하였다.",
+    desc:"신문왕은 즉위 직후 장인 김흠돌의 반란을 진압하고, 이를 계기로 귀족 세력을 숙청하며 전제 왕권을 확립하였다." },
+  { r:15, cnt:12, kw:"영락",       ans:"법흥왕",                    ansType:"person",
+    c1:"영락이라는 독자적인 연호를 사용하였다.", c2:"건원이라는 독자적 연호를 사용하였다.",
+    desc:"법흥왕은 '건원'이라는 독자 연호를 사용하였고, 광개토대왕은 '영락'을 사용하여 각각 자주 국가임을 표방하였다." },
+  { r:16, cnt:11, kw:"욕살",       ans:"고구려",                    ansType:"goguryeo",
+    c1:"지방의 여러 성에 욕살·처려근지 등을 두었다.", c2:"욕살·처려근지가 지방 행정을 담당하였다.",
+    desc:"고구려는 지방의 큰 성에 욕살, 작은 성에 처려근지를 두어 지방 행정과 군사를 함께 관할하게 하였다." },
+  { r:17, cnt:11, kw:"진대법",     ans:"고구려",                    ansType:"goguryeo",
+    c1:"진대법이 시행되었다.", c2:"을파소를 등용하고 진대법을 시행하였다.",
+    desc:"고구려 고국천왕은 재상 을파소의 건의로 봄에 곡식을 빌려주고 가을에 갚는 진대법을 시행하여 빈민을 구제하였다." },
+  { r:18, cnt:10, kw:"정사암",     ans:"백제",                      ansType:"baekje",
+    c1:"국가 중대사를 정사암에서 논의하였다.", c2:"정사암 회의에서 국가 중대사를 결정하였다.",
+    desc:"백제는 귀족 대표들이 정사암에 모여 재상을 선출하고 국가 중대사를 합의로 결정하는 귀족 회의 전통을 가졌다." },
+  { r:19, cnt:10, kw:"9서당",      ans:"통일신라",                  ansType:"unified",
+    c1:"군사 조직으로 9서당 10정을 편성하였다.", c2:"9서당 10정의 군사 제도를 정비하였다.",
+    desc:"통일신라는 중앙군인 9서당에 고구려·백제·말갈인을 포함시키고, 지방군인 10정을 전국 요충지에 배치하였다." },
+  { r:20, cnt:10, kw:"평양성",     ans:"백제 근초고왕",             ansType:"baekje",
+    c1:"백제가 평양성을 공격하여 고구려 왕이 전사하였다.", c2:"평양성을 공격하여 고국원왕을 전사시켰다.",
+    desc:"백제 근초고왕은 371년 직접 군대를 이끌고 고구려 평양성을 공격하여 고국원왕을 전사시키는 대승을 거두었다." },
+  { r:21, cnt:10, kw:"왕오천축국전", ans:"혜초",                    ansType:"person",
+    c1:"구법 순례기인 왕오천축국전을 남겼다.", c2:"구법순례기인 왕오천축국전을 저술하였다.",
+    desc:"통일신라의 승려 혜초는 인도와 중앙아시아를 순례하고 그 견문을 기록한 왕오천축국전을 저술하였다." },
+  { r:22, cnt:9,  kw:"주자감",     ans:"발해",                      ansType:"balhae",
+    c1:"주자감을 설치하여 인재를 양성하였다.", c2:"교육 기관으로 주자감을 두었다.",
+    desc:"발해는 당의 국자감을 본받아 주자감을 설치하고 귀족 자제들에게 유교 경전을 교육하여 관리를 양성하였다." },
+  { r:23, cnt:9,  kw:"부여씨",     ans:"백제",                      ansType:"baekje",
+    c1:"왕족인 부여씨와 8성 귀족이 지배층을 이루었다.", c2:"왕족인 부여씨와 8성의 귀족이 지배층을 형성하였다.",
+    desc:"백제는 왕족인 부여씨와 진씨·해씨 등 8개 성씨의 귀족이 정치·군사·경제의 핵심 지배층을 형성하였다." },
+  { r:24, cnt:9,  kw:"원종",       ans:"889년",                     ansType:"year",
+    c1:"원종과 애노가 사벌주에서 반란을 일으켰다.", c2:"원종과 애노의 난이 일어났다.",
+    desc:"889년(진성여왕 3) 원종과 애노가 사벌주(상주)에서 농민 반란을 일으키며 신라 말기 혼란의 서막을 열었다." },
+  { r:25, cnt:9,  kw:"국사",       ans:"진흥왕",                    ansType:"person",
+    c1:"거칠부에게 명하여 국사를 편찬하였다.", c2:"대아찬 거칠부에게 국사 편찬을 명하였다.",
+    desc:"신라 진흥왕은 대아찬 거칠부에게 명하여 역사서 국사를 편찬하게 함으로써 왕실 권위를 높이고 국가 체제를 정비하였다." },
+  { r:26, cnt:9,  kw:"낙랑",       ans:"미천왕",                    ansType:"person",
+    c1:"낙랑군을 몰아내고 영토를 확장하였다.", c2:"낙랑군을 축출하여 대동강 이남 지역을 확보하였다.",
+    desc:"고구려 미천왕은 313년 낙랑군을, 314년 대방군을 차례로 축출하여 한반도에서 중국 세력을 완전히 몰아냈다." },
+  { r:27, cnt:8,  kw:"마라난타",   ans:"침류왕",                    ansType:"person",
+    c1:"동진에서 온 마라난타를 통해 불교를 수용하였다.", c2:"동진의 마라난타에 의해 불교가 전파되었다.",
+    desc:"백제 침류왕은 384년 동진에서 온 승려 마라난타를 통해 공식적으로 불교를 수용하고 이듬해 절을 창건하였다." },
+  { r:28, cnt:8,  kw:"연개소문",   ans:"642년",                     ansType:"year",
+    c1:"연개소문이 정변을 일으켜 영류왕을 시해하였다.", c2:"연개소문이 권력을 장악하고 막리지가 되었다.",
+    desc:"642년 연개소문은 쿠데타를 일으켜 영류왕을 시해하고 보장왕을 즉위시킨 뒤 대막리지에 올라 실권을 장악하였다." },
+  { r:29, cnt:8,  kw:"기벌포",     ans:"676년",                     ansType:"year",
+    c1:"사찬 시득이 기벌포에서 당군을 격파하였다.", c2:"기벌포 전투로 삼국 통일이 완성되었다.",
+    desc:"676년 신라 사찬 시득이 기벌포(금강 하구)에서 당 수군을 격파함으로써 신라의 삼국 통일이 최종 완성되었다." },
+  { r:30, cnt:8,  kw:"부경",       ans:"고구려",                    ansType:"goguryeo",
+    c1:"집집마다 부경이라는 창고가 있었다.", c2:"각 가정에 부경이라 불리는 창고가 있었다.",
+    desc:"고구려에는 집집마다 부경이라 불리는 작은 창고가 있어 각 가정이 자체적으로 식량과 물자를 저장하였다." },
+  { r:31, cnt:8,  kw:"세속5계",    ans:"원광",                      ansType:"person",
+    c1:"세속 5계를 제시하였다.", c2:"사군이충 등을 포함한 세속 5계를 제시하였다.",
+    desc:"신라의 승려 원광은 화랑에게 사군이충·사친이효·교우이신·임전무퇴·살생유택의 세속 5계를 제시하였다." },
+  { r:32, cnt:8,  kw:"화엄일승법계도", ans:"의상",                  ansType:"person",
+    c1:"화엄일승법계도를 작성하였다.", c2:"화엄일승법계도를 지어 화엄 사상을 정리하였다.",
+    desc:"의상은 당에서 귀국 후 화엄일승법계도를 저술하여 화엄 사상을 집약하고 부석사를 창건하였다." },
+  { r:33, cnt:8,  kw:"왜격퇴",     ans:"광개토대왕",                ansType:"person",
+    c1:"군대를 보내 신라에 침입한 왜를 격퇴하였다.", c2:"고구려가 신라에 침입한 왜를 물리쳤다.",
+    desc:"광개토대왕은 400년 신라의 요청으로 5만 군대를 보내 신라에 침입한 왜를 격퇴하였으며, 이는 광개토대왕릉비에 기록되었다." },
+  { r:34, cnt:8,  kw:"이차돈",     ans:"법흥왕",                    ansType:"person",
+    c1:"이차돈의 순교를 계기로 불교가 공인되었다.", c2:"이차돈의 순교를 계기로 불교를 공인하였다.",
+    desc:"신라 법흥왕은 527년 이차돈의 순교를 계기로 귀족 세력의 반발을 누르고 불교를 공식적으로 공인하였다." },
+  { r:35, cnt:8,  kw:"청방인문표", ans:"강수",                      ansType:"person",
+    c1:"외교 문서인 청방인문표를 작성하였다.", c2:"청방인문표를 지어 인질의 석방을 요구하였다.",
+    desc:"통일신라의 문장가 강수는 당에 억류된 김인문의 석방을 요구하는 외교 문서 청방인문표를 작성하여 명성을 떨쳤다." },
+  { r:36, cnt:8,  kw:"시장",       ans:"신라",                      ansType:"silla",
+    c1:"시장을 감독하는 관청인 동시전이 설치되었다.", c2:"동시전이 설치되어 시장을 관리하였다.",
+    desc:"신라는 수도 경주에 동시·서시·남시 등의 시장을 두고 이를 감독하는 관청인 동시전을 설치하여 상업 활동을 관리하였다." },
+  { r:37, cnt:8,  kw:"황산벌",     ans:"백제 멸망",                 ansType:"event",
+    c1:"계백이 이끈 결사대가 황산벌에서 항전하였다.", c2:"황산벌에서 계백의 군대가 신라군에 패배하였다.",
+    desc:"660년 백제의 계백 장군은 5천 결사대를 이끌고 황산벌에서 신라군에 맞서 싸웠으나 패배하였고, 이후 백제가 멸망하였다." },
+  { r:38, cnt:7,  kw:"화백회의",   ans:"신라",                      ansType:"silla",
+    c1:"화백 회의를 통해 의사 결정하였다.", c2:"화백 회의에서 국가의 중대사를 결정하였다.",
+    desc:"신라의 화백 회의는 진골 귀족 대표들이 만장일치로 국가 중대사를 결정하는 귀족 합의 기구였다." },
+  { r:39, cnt:7,  kw:"남부여",     ans:"백제 성왕",                 ansType:"baekje",
+    c1:"국호를 남부여라 칭하였다.", c2:"도읍을 사비로 옮기고 국호를 남부여로 바꾸었다.",
+    desc:"백제 성왕은 538년 사비(부여)로 천도하고 국호를 남부여로 바꾸어 부여 계승 의식을 강조하였다." },
+  { r:40, cnt:7,  kw:"흑치상지",   ans:"백제 부흥운동",             ansType:"event",
+    c1:"흑치상지가 임존성에서 부흥군을 이끌었다.", c2:"흑치상지가 임존성에서 군사를 일으켰다.",
+    desc:"백제 멸망 후 흑치상지는 임존성을 거점으로 부흥군을 조직하여 나당 연합군에 저항하다 끝내 당에 항복하였다." },
+  { r:41, cnt:7,  kw:"태학",       ans:"고구려",                    ansType:"goguryeo",
+    c1:"태학과 경당을 두어 인재를 양성하였다.", c2:"소수림왕이 태학을 설립하였다.",
+    desc:"고구려 소수림왕은 372년 태학을 세워 귀족 자제를 교육하고, 지방에는 경당을 두어 평민 자제들도 교육받게 하였다." },
+  { r:42, cnt:7,  kw:"무애가",     ans:"원효",                      ansType:"person",
+    c1:"무애가를 지어 불교 대중화에 기여하였다.", c2:"일심 사상을 바탕으로 화쟁 사상을 주창하였다.",
+    desc:"원효는 무애가를 지어 노래하고 춤추며 전국을 돌아다님으로써 불교를 귀족 중심에서 일반 백성에게로 확산시켰다." },
+  { r:43, cnt:6,  kw:"서기",       ans:"근초고왕",                  ansType:"person",
+    c1:"고흥에게 서기를 편찬하게 하였다.", c2:"고흥이 서기를 편찬하였다.",
+    desc:"백제 근초고왕은 학자 고흥에게 명하여 국가의 역사를 기록한 서기를 편찬하게 하였으나, 현재는 전해지지 않는다." },
+  { r:44, cnt:6,  kw:"부여풍",     ans:"백제부흥운동 (660~663)",    ansType:"event",
+    c1:"복신과 도침이 부여풍을 왕으로 추대하였다.", c2:"왜에서 귀국한 부여풍이 왕으로 추대되었다.",
+    desc:"백제 부흥 운동의 주역 복신과 도침은 왜에 인질로 있던 부여풍을 귀국시켜 왕으로 추대하고 저항을 이어 갔다." },
+  { r:45, cnt:6,  kw:"김춘추",     ans:"648년",                     ansType:"year",
+    c1:"김춘추가 당으로 건너가 군사 동맹을 체결하였다.", c2:"김춘추가 당으로 건너가 군사 연합을 성사시켰다.",
+    desc:"648년 신라의 김춘추는 당 태종을 직접 만나 군사 동맹을 체결하여 나당 연합의 토대를 마련하였다." },
+  { r:46, cnt:6,  kw:"당항성",     ans:"신라",                      ansType:"silla",
+    c1:"당항성·영암이 국제 무역항으로 번성하였다.", c2:"당과의 교역 창구로 당항성이 이용되었다.",
+    desc:"신라의 당항성(경기 화성)은 대당 교역의 핵심 거점 항구로 기능하였으며, 영암은 서남해안의 국제 무역항으로 번성하였다." },
+  { r:47, cnt:6,  kw:"관산성",     ans:"백제 성왕",                 ansType:"baekje",
+    c1:"가야와 함께 관산성을 공격하였다.", c2:"관산성 전투에서 전사하였다.",
+    desc:"554년 백제 성왕은 가야와 연합하여 신라의 관산성을 공격하였으나 김무력의 군대에 기습당해 전사하였다." },
+  { r:48, cnt:6,  kw:"화랑도",     ans:"진흥왕",                    ansType:"person",
+    c1:"화랑도를 국가적인 조직으로 개편하였다.", c2:"원광이 세속 5계를 화랑도에 제시하였다.",
+    desc:"신라 진흥왕은 원래 있던 청소년 수련 조직 화랑도를 국가적인 인재 양성 조직으로 공식 개편하여 운영하였다." },
+  { r:49, cnt:6,  kw:"6좌평",      ans:"백제",                      ansType:"baekje",
+    c1:"내신좌평 등 6좌평의 관제를 정비하였다.", c2:"내신좌평·내두좌평 등 6좌평의 관제를 마련하였다.",
+    desc:"백제는 내신좌평·내두좌평·내법좌평·위사좌평·조정좌평·병관좌평의 6좌평 체제로 중앙 행정을 분담 운영하였다." },
+  { r:50, cnt:6,  kw:"장문휴",     ans:"발해 무왕",                 ansType:"balhae",
+    c1:"장문휴를 보내 당의 산둥반도를 공격하였다.", c2:"장문휴가 당의 등주를 공격하였다.",
+    desc:"발해 무왕은 732년 수군 장수 장문휴를 보내 당의 등주(산둥반도)를 선제 공격하여 당과의 군사 긴장을 고조시켰다." },
+];
+
+/* keyword tag styles */
+const kwStyle = {
+  goguryeo: "background:#e0f0e8;color:#1a5030;border:1px solid #90c8a8",
+  baekje:   "background:#fce8d4;color:#8b3010;border:1px solid #e8b090",
+  silla:    "background:#eae0f8;color:#40206a;border:1px solid #c0a0e0",
+  gaya:     "background:#d8f0f0;color:#0a5050;border:1px solid #88c8c8",
+  balhae:   "background:#d8e8f8;color:#1a3068;border:1px solid #88b0d8",
+  unified:  "background:#f8ecd4;color:#6a4008;border:1px solid #d8b070",
+  person:   "background:#f8e8f0;color:#682050;border:1px solid #d8a8c0",
+  year:     "background:#e8eef8;color:#203060;border:1px solid #a0b4d8",
+  event:    "background:#f4ecd8;color:#5a4010;border:1px solid #c8b080",
+  other:    "background:#eeeeee;color:#404040;border:1px solid #cccccc",
+};
+
+function barTier(cnt) {
+  if (cnt >= 16) return 'bt1';
+  if (cnt >= 12) return 'bt2';
+  if (cnt >= 9)  return 'bt3';
+  if (cnt >= 7)  return 'bt4';
+  return 'bt5';
+}
+
+function rankClass(r) {
+  if (r === 1) return 'rank-1';
+  if (r === 2) return 'rank-2';
+  if (r === 3) return 'rank-3';
+  return 'rank-default';
+}
+
+const tbody = document.getElementById('tbody');
+const mobileList = document.getElementById('mobileList');
+
+const stripeColor = {
+  bt1: 'linear-gradient(90deg,#9b2828,#c94040)',
+  bt2: 'linear-gradient(90deg,#b86020,#d89040)',
+  bt3: 'linear-gradient(90deg,#c0981a,#d8b840)',
+  bt4: 'linear-gradient(90deg,#2a7a50,#48a870)',
+  bt5: 'linear-gradient(90deg,#1a6080,#3090b0)',
+};
+
+rows.forEach(d => {
+  const pct  = Math.round((d.cnt / MAX) * 100);
+  const ks   = kwStyle[d.ansType] || kwStyle.other;
+  const tier = barTier(d.cnt);
+
+  /* 데스크톱 테이블 행 */
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="col-rank tc"><span class="rank-badge ${rankClass(d.r)}">${d.r}</span></td>
+    <td class="col-choice">
+      <span class="choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="choice-desc">${d.desc}</span>` : ''}
+    </td>
+    <td class="col-kw"><span class="kw-tag" style="${ks}">${d.kw}</span></td>
+    <td class="col-ans"><span class="ans-tag ans-${d.ansType}">${d.ans}</span></td>
+    <td class="col-bar">
+      <div class="bar-row">
+        <span class="bar-num">${d.cnt}</span>
+        <div class="bar-track">
+          <div class="bar-fill ${tier}" style="width:${pct}%"></div>
+        </div>
+      </div>
+    </td>`;
+  tbody.appendChild(tr);
+
+  /* 모바일 카드 */
+  const mc = document.createElement('div');
+  mc.className = 'm-card';
+  mc.innerHTML = `
+    <div class="m-card-stripe" style="background:${stripeColor[tier]}"></div>
+    <div class="m-card-head">
+      <span class="rank-badge ${rankClass(d.r)}">${d.r}</span>
+      <span class="kw-tag" style="${ks}">${d.kw}</span>
+      <span class="ans-tag ans-${d.ansType}" style="margin-left:auto">${d.ans}</span>
+    </div>
+    <div class="m-card-body">
+      <span class="m-choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="m-choice-desc">${d.desc}</span>` : ''}
+      <div class="m-card-foot">
+        <div class="m-tags"></div>
+        <div class="m-bar-wrap">
+          <span class="m-bar-num">${d.cnt}회</span>
+          <div class="m-bar-track">
+            <div class="m-bar-fill ${tier}" style="width:${pct}%"></div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  mobileList.appendChild(mc);
+});
+</script>
+</body>
+</html>
