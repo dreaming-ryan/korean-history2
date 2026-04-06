@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일제강점기 핵심 키워드 퀴즈</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f9f6ef; --paper2: #f1ece0; --paper3: #e8e0ce;
+    --ink: #1c160c; --ink2: #3a3020; --ink3: #7c6e55; --ink4: #b0a080;
+    --red: #9b2828; --red2: #c94040; --amber: #b87820; --amber2: #d4a030;
+    --teal: #1a6060; --teal2: #2a8070;
+    --border: #d0c4aa; --border2: #e4dac8;
+    --shadow: rgba(28,22,12,0.10); --shadow2: rgba(28,22,12,0.05);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    background-image: radial-gradient(ellipse at 15% 10%, rgba(184,120,32,0.06) 0%, transparent 60%), radial-gradient(ellipse at 85% 90%, rgba(26,96,96,0.05) 0%, transparent 60%);
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+    font-size: 13px; color: var(--ink); min-height: 100vh; padding: 48px 20px 72px;
+  }
+  .page-header { max-width: 1120px; margin: 0 auto 36px; }
+  .header-inner { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-bottom: 18px; border-bottom: 2px solid var(--border); }
+  .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .eyebrow-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; }
+  .eyebrow-text { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); }
+  h1 { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 30px; font-weight: 800; color: var(--ink); line-height: 1.25; letter-spacing: -0.3px; }
+  h1 em { font-style: normal; color: var(--red); border-bottom: 2.5px solid var(--amber2); }
+  .header-sub { margin-top: 7px; font-size: 12.5px; color: var(--ink3); font-weight: 400; letter-spacing: 0.2px; }
+  .header-right { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding-bottom: 4px; }
+  .chip { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 7px 16px; text-align: center; box-shadow: 0 2px 6px var(--shadow2); }
+  .chip-num { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 18px; font-weight: 700; color: var(--red); display: block; line-height: 1; }
+  .chip-label { font-size: 10.5px; color: var(--ink3); margin-top: 3px; white-space: nowrap; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+  .legend-title { font-size: 11px; color: var(--ink4); font-weight: 500; margin-right: 2px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--ink3); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .card { max-width: 1120px; margin: 0 auto; background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px var(--shadow2), 0 8px 32px var(--shadow); }
+  .card-top-stripe { height: 4px; background: linear-gradient(90deg, var(--red) 0%, var(--red2) 20%, var(--amber) 40%, var(--amber2) 55%, var(--teal) 75%, var(--teal2) 100%); }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: linear-gradient(180deg, #22180a 0%, #1a1208 100%); }
+  thead th { padding: 13px 14px; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; font-weight: 700; color: #d8cbb0; letter-spacing: 0.8px; text-align: left; white-space: nowrap; border-right: 1px solid rgba(255,255,255,0.06); }
+  thead th:last-child { border-right: none; }
+  thead th.tc { text-align: center; }
+  tbody tr { border-bottom: 1px solid var(--border2); transition: background 0.12s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--paper2); }
+  tbody tr:hover { background: #ede4d0; }
+  td { padding: 11px 14px; font-size: 13px; vertical-align: middle; border-right: 1px solid var(--border2); }
+  td:last-child { border-right: none; }
+  .col-rank { width: 52px; min-width: 52px; text-align: center; }
+  .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; font-size: 11.5px; font-weight: 700; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; }
+  .rank-1  { background: #f5e6a8; color: #7a5800; border: 1.5px solid #c8a030; }
+  .rank-2  { background: #e8e8e8; color: #505050; border: 1.5px solid #a8a8a8; }
+  .rank-3  { background: #f5d8b8; color: #7a3a08; border: 1.5px solid #c07840; }
+  .rank-default { background: transparent; color: var(--ink3); border: 1px solid var(--border); font-size: 11px; }
+  .col-choice { min-width: 280px; max-width: 400px; line-height: 1.65; color: var(--ink2); font-size: 12.5px; }
+  .choice-main { display: block; }
+  .choice-desc { display: block; font-size: 11.5px; color: var(--ink3); line-height: 1.6; margin-top: 6px; padding: 5px 8px; background: var(--paper2); border-left: 2.5px solid var(--border); border-radius: 0 4px 4px 0; }
+  .col-kw { width: 155px; min-width: 135px; }
+  .kw-tag { display: inline-block; padding: 4px 10px; border-radius: 5px; font-size: 12px; font-weight: 600; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; white-space: nowrap; letter-spacing: 0.2px; }
+  .col-ans { width: 165px; min-width: 145px; }
+  .ans-tag { display: inline-block; padding: 3px 9px; border-radius: 4px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+  /* 일제강점기 정답 색상 */
+  .ans-military  { background: #ffe0e0; color: #7a1818; border: 1px solid #d89090; }  /* 무장 독립군 */
+  .ans-secret    { background: #e8e0f8; color: #3a1878; border: 1px solid #b098d8; }  /* 비밀결사·단체 */
+  .ans-impgov    { background: #e0f0e8; color: #1a5030; border: 1px solid #80c8a0; }  /* 임시정부 */
+  .ans-movement  { background: #d8f0f8; color: #0a4060; border: 1px solid #70b8d8; }  /* 사회·문화 운동 */
+  .ans-rule      { background: #f0e8d8; color: #5a3808; border: 1px solid #d0a850; }  /* 일제 통치 */
+  .ans-year      { background: #f8e8c8; color: #6a4008; border: 1px solid #d8b060; }  /* 연도 */
+  .ans-region    { background: #e8f0d8; color: #284808; border: 1px solid #90b870; }  /* 지역 */
+  .ans-person    { background: #f8e0f0; color: #601848; border: 1px solid #d090b8; }  /* 인물 */
+  .ans-culture   { background: #f4ecd8; color: #5a4010; border: 1px solid #c8b080; }  /* 문화·학문 */
+  .ans-religion  { background: #e8eef8; color: #203060; border: 1px solid #a0b4d8; }  /* 종교 */
+  .ans-other     { background: #eeeeee; color: #404040; border: 1px solid #cccccc; }
+  .col-bar { min-width: 180px; width: 210px; }
+  .bar-row { display: flex; align-items: center; gap: 9px; }
+  .bar-num { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 700; min-width: 22px; text-align: right; color: var(--red); }
+  .bar-track { flex: 1; height: 9px; background: var(--paper2); border-radius: 5px; overflow: hidden; border: 1px solid var(--border); }
+  .bar-fill { height: 100%; border-radius: 5px; }
+  .bt1 { background: linear-gradient(90deg, #9b2828, #c94040); }
+  .bt2 { background: linear-gradient(90deg, #b86020, #d89040); }
+  .bt3 { background: linear-gradient(90deg, #c0981a, #d8b840); }
+  .bt4 { background: linear-gradient(90deg, #2a7a50, #48a870); }
+  .bt5 { background: linear-gradient(90deg, #1a6080, #3090b0); }
+  .footer { max-width: 1120px; margin: 22px auto 0; font-size: 11px; color: var(--ink4); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  /* ── MOBILE CARD LIST ── */
+  .mobile-list { display: none; }
+
+  .m-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow2);
+    margin-bottom: 12px;
+  }
+
+  .m-card-stripe { height: 4px; }
+
+  .m-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 8px;
+  }
+
+  .m-card-body {
+    padding: 0 14px 14px;
+  }
+
+  .m-choice-main {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink2);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .m-choice-desc {
+    display: block;
+    font-size: 12px;
+    color: var(--ink3);
+    line-height: 1.65;
+    padding: 7px 10px;
+    background: var(--paper2);
+    border-left: 2.5px solid var(--border);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 10px;
+  }
+
+  .m-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .m-tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+  .m-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+
+  .m-bar-num {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    min-width: 28px;
+    text-align: right;
+  }
+
+  .m-bar-track {
+    width: 80px;
+    height: 8px;
+    background: var(--paper2);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .m-bar-fill { height: 100%; border-radius: 5px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    body { padding: 28px 14px 60px; font-size: 13px; }
+    h1 { font-size: 22px; }
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .header-right { gap: 8px; }
+    .chip { padding: 6px 12px; }
+    .chip-num { font-size: 16px; }
+    .legend { gap: 8px; margin-top: 12px; }
+    .legend-item { font-size: 10.5px; }
+    /* 테이블 숨기고 카드 리스트 표시 */
+    .card { display: none; }
+    .mobile-list { display: block; max-width: 1120px; margin: 0 auto; }
+  }
+
+  .quiz-controls { max-width: 1120px; margin: 0 auto 18px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .btn-reveal-all { display: inline-flex; align-items: center; gap: 7px; padding: 8px 18px; border-radius: 8px; font-size: 12.5px; font-weight: 700; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; cursor: pointer; border: 1.5px solid var(--amber); background: linear-gradient(135deg, #fff8ec, #fef0d0); color: var(--amber); transition: background 0.15s, box-shadow 0.15s; box-shadow: 0 2px 6px var(--shadow2); }
+  .btn-reveal-all:hover { background: linear-gradient(135deg, #fef0d0, #fde0a0); box-shadow: 0 3px 10px rgba(184,120,32,0.18); }
+  .btn-hide-all { display: inline-flex; align-items: center; gap: 7px; padding: 8px 18px; border-radius: 8px; font-size: 12.5px; font-weight: 700; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; cursor: pointer; border: 1.5px solid var(--border); background: #fff; color: var(--ink3); transition: background 0.15s, box-shadow 0.15s; box-shadow: 0 2px 6px var(--shadow2); }
+  .btn-hide-all:hover { background: var(--paper2); box-shadow: 0 3px 10px var(--shadow); }
+  .quiz-hint { font-size: 11.5px; color: var(--ink4); margin-left: 4px; }
+  .quiz-hint span { color: var(--red); font-weight: 600; }
+  .ans-hidden { display: none; }
+  .ans-wrap { display: inline-flex; align-items: center; }
+  .m-ans-wrap { display: inline-flex; align-items: center; }
+  .btn-reveal { display: inline-flex; align-items: center; gap: 5px; padding: 4px 11px; border-radius: 5px; font-size: 11.5px; font-weight: 600; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; cursor: pointer; border: 1.5px dashed var(--border); background: var(--paper2); color: var(--ink4); transition: all 0.15s; white-space: nowrap; }
+  .btn-reveal:hover { border-color: var(--amber); background: #fff8ec; color: var(--amber); }
+  .btn-reveal .eye-icon { font-size: 13px; line-height: 1; }
+</style>
+</head>
+<body>
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-text">한국사능력검정시험 대비 — 퀴즈 모드</span></div>
+      <h1>일제강점기 <em>핵심 키워드</em> 퀴즈</h1>
+      <p class="header-sub">정답 열을 가린 상태로 시작합니다 · 버튼을 클릭하면 정답을 확인할 수 있습니다</p>
+    </div>
+    <div class="header-right">
+      <div class="chip"><span class="chip-num">849</span><div class="chip-label">총 기출 선택지</div></div>
+      <div class="chip"><span class="chip-num">50</span><div class="chip-label">핵심 키워드</div></div>
+      <div class="chip"><span class="chip-num">19</span><div class="chip-label">최고 출제횟수</div></div>
+    </div>
+  </div>
+  <div class="legend">
+    <span class="legend-title">정답 구분 →</span>
+    <div class="legend-item"><div class="legend-dot" style="background:#7a1818;border:1px solid #d89090"></div>무장 독립군</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3a1878;border:1px solid #b098d8"></div>비밀결사·단체</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a5030;border:1px solid #80c8a0"></div>임시정부</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#0a4060;border:1px solid #70b8d8"></div>사회·문화 운동</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5a3808;border:1px solid #d0a850"></div>일제 통치</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6a4008;border:1px solid #d8b060"></div>연도</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#284808;border:1px solid #90b870"></div>지역</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#601848;border:1px solid #d090b8"></div>인물</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5a4010;border:1px solid #c8b080"></div>문화·학문</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#203060;border:1px solid #a0b4d8"></div>종교</div>
+  </div>
+</header>
+
+<!-- 전체 공개/숨김 컨트롤 -->
+<div class="quiz-controls">
+  <button class="btn-reveal-all" onclick="revealAll()">
+    <span class="eye-icon">👁</span> 정답 전체 보기
+  </button>
+  <button class="btn-hide-all" onclick="hideAll()">
+    <span>🙈</span> 정답 전체 숨기기
+  </button>
+  <span class="quiz-hint">개별 버튼 클릭으로 <span>하나씩</span> 확인도 가능합니다</span>
+</div>
+
+<div class="card">
+  <div class="card-top-stripe"></div>
+  <table>
+    <thead>
+      <tr>
+        <th class="tc">순위</th>
+        <th>대표 선택지</th>
+        <th>핵심 키워드</th>
+        <th>정답</th>
+        <th>출제횟수</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="mobile-list" id="mobileList"></div>
+
+<footer class="footer">
+  <span>출처 : 한국사능력검정시험 기출문제 &nbsp;|&nbsp; 총 849개 선택지 · 핵심 키워드 분석</span>
+  <span>빈도 기준 내림차순 정렬 (1위 = 최다 출제)</span>
+</footer>
+
+<script>
+const MAX = 19;
+
+const rows = [
+  { r:1,  cnt:19, kw:"조선 혁명 선언",     ans:"의열단",              ansType:"secret",
+    c1:"신채호가 쓴 조선 혁명 선언을 활동 지침으로 삼았다.",
+    desc:"1923년 신채호가 작성한 조선 혁명 선언은 의열단의 행동 지침으로, 외교론·준비론을 비판하고 민중의 직접 혁명을 통한 독립을 주장하였다." },
+  { r:2,  cnt:12, kw:"영릉가 전투",         ans:"조선혁명군",          ansType:"military",
+    c1:"중국 의용군과 연합하여 영릉가 전투에서 승리하였다.",
+    desc:"양세봉이 이끄는 조선혁명군은 남만주에서 중국 의용군과 연합하여 영릉가·흥경성 전투에서 일본군을 격퇴하며 한·중 연합 작전의 성과를 거두었다." },
+  { r:3,  cnt:12, kw:"독립 공채",           ans:"대한민국 임시정부",   ansType:"impgov",
+    c1:"독립운동 자금 마련을 위해 독립 공채를 발행하였다.",
+    desc:"대한민국 임시정부는 독립 공채를 발행하고 연통제·교통국을 운영하여 자금과 정보를 수집하였으며, 구미 위원부를 통한 외교 활동과 한국독립운동지혈사 등의 편찬 사업도 병행하였다." },
+  { r:4,  cnt:12, kw:"문화 통치",           ans:"3.1운동",             ansType:"movement",
+    c1:"일제가 이른바 문화 통치를 실시하는 계기가 되었다.",
+    desc:"1919년 3·1 운동은 일제 무단 통치에 대한 전 민족적 저항으로, 이를 계기로 일제는 헌병 경찰제를 보통 경찰제로 바꾸는 이른바 문화 통치로 전환하였고, 대한민국 임시정부 수립으로 이어졌다." },
+  { r:5,  cnt:11, kw:"국내 진공 작전",      ans:"한국광복군",          ansType:"military",
+    c1:"미국과 연계하여 국내 진공 작전을 준비하였다.",
+    desc:"한국광복군은 미국 OSS와 협력하여 국내 진공 작전을 계획하였으며, 영국군의 요청으로 인도·미얀마 전선에도 파견되었으나 일본의 항복으로 국내 진공 작전은 실행되지 못하였다." },
+  { r:6,  cnt:11, kw:"최초 한인 무장 부대", ans:"조선의용대",           ansType:"military",
+    c1:"중국 관내에서 결성된 최초의 한인 무장 부대였다.",
+    desc:"1938년 우한에서 김원봉이 조직한 조선의용대는 중국 관내 최초의 한인 무장 부대로, 이후 일부가 화북으로 이동하여 조선의용군이 되었고 나머지는 한국광복군에 편입되었다." },
+  { r:7,  cnt:10, kw:"회사령",              ans:"1910년",              ansType:"rule",
+    c1:"회사 설립을 허가제로 하는 회사령이 공포되었다.",
+    desc:"1910년 공포된 회사령은 조선에서의 회사 설립 시 조선 총독의 허가를 받도록 강제하여 조선인의 기업 활동을 억제하였으며, 1920년에 폐지되었다." },
+  { r:8,  cnt:10, kw:"자유시 참변",         ans:"대한독립군단",         ansType:"military",
+    c1:"간도 참변 이후 조직을 정비하고 자유시로 이동하였다.",
+    desc:"1920년 청산리·봉오동 전투 승리 후 일제의 간도 참변을 피해 연해주로 이동한 독립군 연합 부대는 자유시(스보보드니)에서 소련 적군과 충돌하여 큰 피해를 입었다(자유시 참변, 1921)." },
+  { r:9,  cnt:10, kw:"미쓰야 협정",         ans:"1925년",              ansType:"year",
+    c1:"만주 군벌과 일제가 미쓰야 협정을 체결하였다.",
+    desc:"1925년 조선 총독부 경무국장 미쓰야와 만주 군벌 장쭤린 측이 체결한 미쓰야 협정은 만주에서 활동하는 한인 독립군을 일본 측에 인도하기로 약정하여 독립군 활동에 큰 타격을 주었다." },
+  { r:10, cnt:10, kw:"경성 제국 대학",      ans:"1924년",              ansType:"year",
+    c1:"경성 제국 대학이 설립되었다.",
+    desc:"1924년 경성 제국 대학이 설립되었으며, 이는 조선인의 민립 대학 설립 운동을 무력화하기 위한 일제의 대응이었다. 조선인 입학 비율은 전체 학생의 약 40%에 불과하였다." },
+  { r:11, cnt:10, kw:"대전자령 전투",       ans:"한국독립군",           ansType:"military",
+    c1:"쌍성보·대전자령 전투에서 일본군을 크게 물리쳤다.",
+    desc:"지청천이 이끄는 한국독립군은 북만주에서 중국 호로군과 연합하여 쌍성보·대전자령·경박호 전투에서 잇달아 승리하며 한·중 연합 작전의 성과를 거두었다." },
+  { r:12, cnt:9,  kw:"헌병 경찰",           ans:"1910년대 무단통치",   ansType:"rule",
+    c1:"조선 태형령이 시행되고 헌병 경찰이 즉결 처분권을 행사하였다.",
+    desc:"1910년대 무단 통치 시기 일제는 헌병이 경찰 업무를 겸하는 헌병 경찰제를 실시하고 조선 태형령을 공포하여 한국인에게만 태형을 가하는 등 폭압적인 식민 지배를 자행하였다." },
+  { r:13, cnt:9,  kw:"권업회",              ans:"연해주",              ansType:"region",
+    c1:"권업회를 조직하고 권업신문을 발간하여 민족 의식을 고취하였다.",
+    desc:"연해주의 한인들은 1911년 권업회를 조직하고 기관지 권업신문을 발행하여 민족 의식을 고취하였으며, 1914년에는 대한 광복군 정부를 수립하여 무장 독립 투쟁을 준비하였다." },
+  { r:14, cnt:8,  kw:"순종 인산일",         ans:"6.10 만세 운동",      ansType:"movement",
+    c1:"순종의 인산일을 기회로 삼아 만세 운동을 전개하였다.",
+    desc:"1926년 대한제국 마지막 황제 순종의 인산일(장례일)을 맞아 학생들과 민족주의·사회주의 세력이 연대하여 6·10 만세 운동을 일으켰으며, 이는 신간회 결성의 배경이 되었다." },
+  { r:15, cnt:8,  kw:"경학사",              ans:"신민회",              ansType:"secret",
+    c1:"한인 자치 기관인 경학사를 조직하였다.",
+    desc:"신민회는 서간도(남만주)에 한인 자치 기구인 경학사와 신흥 강습소(신흥무관학교)를 설립하여 독립군 기지 건설과 인재 양성을 도모하였다." },
+  { r:16, cnt:8,  kw:"한국통사",            ans:"박은식",              ansType:"person",
+    c1:"국권 피탈 과정을 정리한 한국통사를 저술하였다.",
+    desc:"박은식은 한국통사와 한국독립운동지혈사를 저술하여 국권 피탈과 독립 투쟁의 역사를 기록하였으며, 유교구신론으로 유교 개혁을 주장하고 대한민국 임시정부 제2대 대통령을 역임하였다." },
+  { r:17, cnt:7,  kw:"국권 반환 요구서",    ans:"독립의군부",           ansType:"secret",
+    c1:"조선 총독부에 국권 반환 요구서를 제출하려 하였다.",
+    desc:"임병찬이 고종의 밀명을 받아 조직한 독립의군부는 복벽주의를 표방하며 조선 총독부에 국권 반환 요구서를 제출하려 하였으나, 1914년 일제에 발각되어 해산되었다." },
+  { r:18, cnt:7,  kw:"민립 대학 설립 운동", ans:"1923년",              ansType:"year",
+    c1:"조선 민립 대학 기성회가 창립되어 민립 대학 설립 운동을 전개하였다.",
+    desc:"1923년 이상재 등이 조선 민립 대학 기성회를 조직하고 '한민족 1천만이 한 사람이 1원씩'이라는 구호로 모금 운동을 벌였으나, 일제의 방해와 경성 제국 대학 설립으로 좌절되었다." },
+  { r:19, cnt:7,  kw:"광주 학생 항일 운동 지원", ans:"광주 학생 항일 운동", ansType:"movement",
+    c1:"신간회가 진상 조사단을 파견하여 운동을 지원하였다.",
+    desc:"1929년 한·일 학생 간의 충돌로 시작된 광주 학생 항일 운동은 성진회·독서회의 조직적 활동으로 전국으로 확산되었으며, 신간회가 진상 조사단을 파견하여 지원하였다." },
+  { r:20, cnt:6,  kw:"토지 조사 사업",      ans:"1910년대 무단통치",   ansType:"rule",
+    c1:"임시 토지 조사국을 설치하여 토지 조사 사업을 실시하였다.",
+    desc:"1910년대 일제는 토지 조사 사업을 실시하여 신고주의 원칙을 내세워 신고되지 않은 토지를 조선 총독부 소유로 편입하고, 총독부·동양 척식 주식회사의 토지를 대폭 늘렸다." },
+  { r:21, cnt:6,  kw:"개벽",               ans:"천도교",              ansType:"religion",
+    c1:"개벽, 신여성 등의 잡지를 발행하여 민족 의식을 고취하였다.",
+    desc:"천도교는 3·1 운동의 주요 세력으로 활동하였으며, 기관지 개벽·신여성·어린이 등의 잡지를 발행하고 방정환을 중심으로 소년 운동을 전개하며 민족 문화 운동에 앞장섰다." },
+  { r:22, cnt:6,  kw:"인도·미얀마 파견",    ans:"한국광복군",          ansType:"military",
+    c1:"영국군의 요청으로 인도·미얀마 전선에 파견되었다.",
+    desc:"한국광복군은 영국군의 요청으로 인도·미얀마 전선에 대원을 파견하여 대일 심리전과 포로 심문 등의 활동을 수행하였으며, 미국 OSS와의 협력으로 국내 진공 작전도 준비하였다." },
+  { r:23, cnt:6,  kw:"원산 총파업",         ans:"1929년",              ansType:"year",
+    c1:"원산 총파업에 참여한 노동자들이 장기간 파업을 이어 갔다.",
+    desc:"1929년 원산 노동자들이 일본인 감독의 한국인 구타에 항의하며 시작한 원산 총파업은 4개월간 지속된 대규모 노동 쟁의로, 국내외 노동 단체의 지원과 연대를 받았다." },
+  { r:24, cnt:6,  kw:"신흥 강습소",         ans:"신민회",              ansType:"secret",
+    c1:"신흥 강습소를 세워 독립군을 양성하였다.",
+    desc:"신민회의 이회영·이동녕 등은 서간도에 신흥 강습소(후에 신흥무관학교로 개편)를 설립하여 독립군을 체계적으로 양성하였으며, 이곳 출신들이 독립군의 핵심 전력이 되었다." },
+  { r:25, cnt:6,  kw:"이봉창 의거",         ans:"한인애국단",           ansType:"secret",
+    c1:"단원인 이봉창이 일왕의 행렬에 폭탄을 투척하였다.",
+    desc:"김구가 조직한 한인애국단의 이봉창은 1932년 일왕 행렬에 수류탄을 투척하였고, 같은 해 윤봉길은 상하이 홍커우 공원에서 폭탄을 던져 일본군 지휘부를 타격하였다." },
+  { r:26, cnt:6,  kw:"김원봉",              ans:"의열단",              ansType:"secret",
+    c1:"김원봉이 중국 지린성에서 의열단을 조직하였다.",
+    desc:"김원봉은 1919년 만주 지린성에서 의열단을 창설하고 신채호의 조선 혁명 선언을 활동 지침으로 삼아 일제 식민 통치 기관 파괴와 요인 처단을 목표로 활동하였다." },
+  { r:27, cnt:6,  kw:"조선 사람 조선 것",   ans:"물산장려운동",         ansType:"movement",
+    c1:"'조선 사람 조선 것'이라는 구호를 내세워 물산 장려 운동을 전개하였다.",
+    desc:"1920년대 조만식 등이 평양에서 시작한 물산 장려 운동은 조선 관세령 폐지를 계기로 확산되어 '조선 사람 조선 것'을 구호로 조선 물산 애용과 소비 절약을 촉구하였다." },
+  { r:28, cnt:6,  kw:"조선 사상범 예방 구금령", ans:"1941년",           ansType:"year",
+    c1:"조선 사상범 예방 구금령을 공포하여 독립운동가를 탄압하였다.",
+    desc:"1941년 공포된 조선 사상범 예방 구금령은 형기를 마친 사상범을 예방 구금할 수 있게 한 악법으로, 일제가 독립운동가와 사회주의자를 무기한 억압하기 위해 제정하였다." },
+  { r:29, cnt:6,  kw:"간도 참변",            ans:"1920년",              ansType:"year",
+    c1:"간도 참변으로 간도 지역 한인들이 대규모로 학살되었다.",
+    desc:"1920년 봉오동·청산리 전투에서 패배한 일본군이 보복으로 간도 지역 한인 민간인을 무차별 학살한 간도 참변(경신참변)이 일어났으며, 이로 인해 독립군은 연해주로 이동하였다." },
+  { r:30, cnt:6,  kw:"2·8 독립 선언",       ans:"일본 도쿄",            ansType:"region",
+    c1:"일본 도쿄에서 유학생들이 2·8 독립 선언서를 발표하였다.",
+    desc:"1919년 2월 8일 도쿄 조선 기독교청년회관에서 재일 유학생들이 2·8 독립 선언서를 발표하였으며, 이는 국내 3·1 운동의 직접적인 기폭제가 되었다." },
+  { r:31, cnt:6,  kw:"지청천",              ans:"한국광복군",           ansType:"military",
+    c1:"총사령관 지청천이 이끄는 한국광복군이 창설되었다.",
+    desc:"지청천(이청천)은 한국독립군 총사령관을 역임한 뒤 1940년 충칭에서 창설된 한국광복군의 총사령관이 되어 대한민국 임시정부의 정규 군사력을 이끌었다." },
+  { r:32, cnt:6,  kw:"국가 총동원법",        ans:"1938년",              ansType:"year",
+    c1:"국가 총동원법을 제정하여 인력과 물자를 강제 동원하였다.",
+    desc:"1938년 제정된 국가 총동원법은 일제가 전시 체제를 구축하기 위해 인적·물적 자원을 강제 동원할 수 있는 법적 근거를 마련한 것으로, 이후 징용·징병·물자 공출 등이 체계화되었다." },
+  { r:33, cnt:6,  kw:"봉오동 전투",         ans:"대한독립군",           ansType:"military",
+    c1:"봉오동 전투에서 일본군을 크게 격파하였다.",
+    desc:"1920년 홍범도가 이끄는 대한독립군은 대한국민회군·군무도독부군과 연합하여 봉오동에서 일본군을 매복 기습하여 대승을 거두었으며, 이는 청산리 전투와 함께 무장 독립 투쟁의 쾌거였다." },
+  { r:34, cnt:6,  kw:"105인 사건",          ans:"신민회",              ansType:"secret",
+    c1:"일제가 조작한 105인 사건으로 와해되었다.",
+    desc:"1911년 일제는 데라우치 총독 암살 음모를 조작하여 신민회 회원과 기독교 인사 등 700여 명을 검거하고 105명을 기소하였으며, 이 사건으로 신민회는 강제 해산되었다." },
+  { r:35, cnt:5,  kw:"광주 학생 항일 운동 배경", ans:"신간회",          ansType:"movement",
+    c1:"광주 학생 항일 운동에 진상 조사단을 파견하여 지원하였다.",
+    desc:"신간회는 민족주의와 사회주의 계열이 결합한 민족 협동 전선 단체로, 1929년 광주 학생 항일 운동 때 진상 조사단을 파견하고 민중 대회를 계획하는 등 운동 지원에 적극적으로 나섰다." },
+  { r:36, cnt:5,  kw:"이토 히로부미 저격",   ans:"안중근",              ansType:"person",
+    c1:"하얼빈에서 이토 히로부미를 사살하였다.",
+    desc:"안중근은 1909년 하얼빈 역에서 초대 통감 이토 히로부미를 저격·사살하고, 뤼순 감옥에서 동양 평화론을 집필하였으며, 1910년 사형이 집행되었다." },
+  { r:37, cnt:4,  kw:"아리랑",              ans:"1926년",              ansType:"culture",
+    c1:"나운규가 감독·제작한 영화 아리랑이 단성사에서 개봉되었다.",
+    desc:"1926년 나운규가 제작·감독·주연한 영화 아리랑은 일제 강점기 민족의 설움을 담아 큰 반향을 일으켰으며, 한국 영화 예술의 선구적 작품으로 평가받는다." },
+  { r:38, cnt:4,  kw:"조선 형평사",         ans:"1923년",              ansType:"year",
+    c1:"백정들의 신분 차별 철폐를 위해 조선 형평사가 창립되었다.",
+    desc:"1923년 경남 진주에서 창립된 조선 형평사는 백정에 대한 사회적 차별 철폐를 목표로 한 형평 운동을 전개하였으며, '공평은 사회의 근본이요 애정은 인류의 본량'을 구호로 삼았다." },
+  { r:39, cnt:4,  kw:"암태도 소작 쟁의",    ans:"1923년",              ansType:"year",
+    c1:"전남 암태도에서 소작 쟁의가 일어났다.",
+    desc:"1923년 전남 신안군 암태도에서 소작농들이 고율의 소작료에 항의하여 소작 쟁의를 일으켰으며, 약 1년간의 투쟁 끝에 소작료를 낮추는 성과를 거두어 이후 소작 운동의 귀감이 되었다." },
+  { r:40, cnt:4,  kw:"치안 유지법",         ans:"1925년",              ansType:"year",
+    c1:"치안 유지법을 제정하여 사회주의 운동과 독립운동을 탄압하였다.",
+    desc:"1925년 제정된 치안 유지법은 국체 변혁·사유재산 부정을 목적으로 하는 결사·운동을 처벌하는 법률로, 일제는 이를 사회주의 운동과 한국 독립운동 탄압에 광범위하게 활용하였다." },
+  { r:41, cnt:4,  kw:"정우회 선언",         ans:"신간회",              ansType:"movement",
+    c1:"정우회 선언의 영향으로 신간회가 결성되었다.",
+    desc:"1926년 사회주의 계열이 민족주의 계열과 협력할 것을 천명한 정우회 선언을 계기로 1927년 민족주의·사회주의가 연합한 신간회가 결성되어 일제 강점기 최대의 항일 민족 단체가 되었다." },
+  { r:42, cnt:4,  kw:"박상진",              ans:"대한광복회",           ansType:"person",
+    c1:"박상진이 대구에서 대한광복회를 조직하였다.",
+    desc:"1915년 박상진이 조직한 대한광복회는 군대식 조직을 갖춘 비밀 결사로, 군자금 모집과 친일파 처단 활동을 전개하고 공화제 국민 국가 수립을 목표로 하였다." },
+  { r:43, cnt:4,  kw:"청산리 전투",         ans:"북로군정서",           ansType:"military",
+    c1:"홍범도 부대와 연합하여 청산리에서 일본군과 싸워 대승을 거두었다.",
+    desc:"1920년 김좌진·이범석이 이끄는 북로군정서는 홍범도의 대한독립군과 연합하여 청산리 일대에서 6일간의 전투 끝에 일본군을 대파하였으며, 이는 독립군 사상 최대의 전과였다." },
+  { r:44, cnt:4,  kw:"서전서숙·명동학교",   ans:"북간도",              ansType:"region",
+    c1:"서전서숙과 명동 학교를 설립하여 민족 교육을 실시하였다.",
+    desc:"북간도에서는 이상설이 서전서숙(1906)을, 이어 명동 학교(1908)가 설립되어 한인들에게 민족 교육을 실시하였으며, 중광단이 결성되어 독립 전쟁을 준비하였다." },
+  { r:45, cnt:4,  kw:"쌍성보 전투",         ans:"한국독립군",           ansType:"military",
+    c1:"쌍성보 전투에서 중국군과 한·중 연합 작전을 전개하였다.",
+    desc:"한국독립군은 중국 호로군과 연합하여 1932년 쌍성보 전투를 시작으로 대전자령·경박호 전투에서 연이어 일본군을 격파하며 북만주 무장 독립 투쟁을 이끌었다." },
+  { r:46, cnt:3,  kw:"삼균주의",            ans:"대한민국 임시정부",   ansType:"impgov",
+    c1:"삼균주의를 기초로 하는 건국 강령을 발표하였다.",
+    desc:"1941년 대한민국 임시정부는 조소앙이 주창한 삼균주의(정치·경제·교육의 균등)를 기초로 건국 강령을 발표하여 광복 후 수립할 국가의 청사진을 제시하였다." },
+  { r:47, cnt:3,  kw:"연통제",              ans:"대한민국 임시정부",   ansType:"impgov",
+    c1:"비밀 행정 조직인 연통제를 운영하여 국내와 연락하였다.",
+    desc:"대한민국 임시정부는 연통제를 통해 국내의 각 도·군·면에 조직망을 구축하고 독립운동 자금 모집·정보 수집·임시정부와의 연락을 담당하게 하였다." },
+  { r:48, cnt:3,  kw:"복벽주의",            ans:"독립의군부",           ansType:"secret",
+    c1:"복벽주의를 표방하며 조선 왕정 복고를 추구하였다.",
+    desc:"독립의군부는 고종의 복위와 조선 왕정의 복고를 목표로 하는 복벽주의를 표방하였으며, 임병찬이 주도하여 전국 유생들의 조직망을 구성하였으나 1914년 일제에 발각되어 해산되었다." },
+  { r:49, cnt:3,  kw:"조선말 큰사전",       ans:"조선어학회",           ansType:"culture",
+    c1:"조선말 큰사전 편찬을 추진하였다.",
+    desc:"조선어학회는 한글 맞춤법 통일안·표준어 사정안을 제정하고 조선말 큰사전 편찬을 추진하였으나, 1942년 조선어학회 사건으로 회원들이 체포되어 활동이 중단되었다." },
+  { r:50, cnt:3,  kw:"조선 건국 동맹",      ans:"여운형",              ansType:"person",
+    c1:"광복에 대비하여 조선 건국 동맹을 결성하였다.",
+    desc:"여운형은 1944년 광복에 대비하여 조선 건국 동맹을 비밀리에 결성하였으며, 광복 직후 조선 건국 준비 위원회를 조직하고 이후 좌우 합작 운동에도 참여하였다." },
+];
+
+const kwStyle = {
+  military:  "background:#ffe0e0;color:#7a1818;border:1px solid #d89090",
+  secret:    "background:#e8e0f8;color:#3a1878;border:1px solid #b098d8",
+  impgov:    "background:#e0f0e8;color:#1a5030;border:1px solid #80c8a0",
+  movement:  "background:#d8f0f8;color:#0a4060;border:1px solid #70b8d8",
+  rule:      "background:#f0e8d8;color:#5a3808;border:1px solid #d0a850",
+  year:      "background:#f8e8c8;color:#6a4008;border:1px solid #d8b060",
+  region:    "background:#e8f0d8;color:#284808;border:1px solid #90b870",
+  person:    "background:#f8e0f0;color:#601848;border:1px solid #d090b8",
+  culture:   "background:#f4ecd8;color:#5a4010;border:1px solid #c8b080",
+  religion:  "background:#e8eef8;color:#203060;border:1px solid #a0b4d8",
+  other:     "background:#eeeeee;color:#404040;border:1px solid #cccccc",
+};
+
+function barTier(cnt) {
+  if (cnt >= 15) return 'bt1';
+  if (cnt >= 10) return 'bt2';
+  if (cnt >= 7)  return 'bt3';
+  if (cnt >= 4)  return 'bt4';
+  return 'bt5';
+}
+
+function rankClass(r) {
+  if (r === 1) return 'rank-1';
+  if (r === 2) return 'rank-2';
+  if (r === 3) return 'rank-3';
+  return 'rank-default';
+}
+
+const tbody = document.getElementById('tbody');
+const mobileList = document.getElementById('mobileList');
+
+const stripeColor = {
+  bt1: 'linear-gradient(90deg,#9b2828,#c94040)',
+  bt2: 'linear-gradient(90deg,#b86020,#d89040)',
+  bt3: 'linear-gradient(90deg,#c0981a,#d8b840)',
+  bt4: 'linear-gradient(90deg,#2a7a50,#48a870)',
+  bt5: 'linear-gradient(90deg,#1a6080,#3090b0)',
+};
+
+rows.forEach(d => {
+  const pct  = Math.round((d.cnt / MAX) * 100);
+  const ks   = kwStyle[d.ansType] || kwStyle.other;
+  const tier = barTier(d.cnt);
+
+  /* 데스크톱 테이블 행 */
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="col-rank tc"><span class="rank-badge ${rankClass(d.r)}">${d.r}</span></td>
+    <td class="col-choice">
+      <span class="choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="choice-desc">${d.desc}</span>` : ''}
+    </td>
+    <td class="col-kw"><span class="kw-tag" style="${ks}">${d.kw}</span></td>
+    <td class="col-ans">
+      <span class="ans-wrap">
+        <span class="ans-tag ans-${d.ansType} ans-hidden">${d.ans}</span>
+        <button class="btn-reveal" onclick="toggleAnswer(this)"><span class="eye-icon">👁</span> 정답 보기</button>
+      </span>
+    </td>
+    <td class="col-bar">
+      <div class="bar-row">
+        <span class="bar-num">${d.cnt}</span>
+        <div class="bar-track">
+          <div class="bar-fill ${tier}" style="width:${pct}%"></div>
+        </div>
+      </div>
+    </td>`;
+  tbody.appendChild(tr);
+
+  /* 모바일 카드 */
+  const mc = document.createElement('div');
+  mc.className = 'm-card';
+  mc.innerHTML = `
+    <div class="m-card-stripe" style="background:${stripeColor[tier]}"></div>
+    <div class="m-card-head">
+      <span class="rank-badge ${rankClass(d.r)}">${d.r}</span>
+      <span class="kw-tag" style="${ks}">${d.kw}</span>
+      <span class="m-ans-wrap" style="margin-left:auto">
+        <span class="ans-tag ans-${d.ansType} ans-hidden">${d.ans}</span>
+        <button class="btn-reveal" onclick="toggleAnswer(this)"><span class="eye-icon">👁</span> 정답 보기</button>
+      </span>
+    </div>
+    <div class="m-card-body">
+      <span class="m-choice-main">${d.c1}</span>
+      ${d.desc ? `<span class="m-choice-desc">${d.desc}</span>` : ''}
+      <div class="m-card-foot">
+        <div class="m-tags"></div>
+        <div class="m-bar-wrap">
+          <span class="m-bar-num">${d.cnt}회</span>
+          <div class="m-bar-track">
+            <div class="m-bar-fill ${tier}" style="width:${pct}%"></div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  mobileList.appendChild(mc);
+});
+
+function toggleAnswer(btn) {
+  const wrap = btn.closest('.ans-wrap, .m-ans-wrap');
+  const ansTag = wrap.querySelector('.ans-tag');
+  if (ansTag.classList.contains('ans-hidden')) {
+    ansTag.classList.remove('ans-hidden');
+    btn.innerHTML = '<span class="eye-icon">🙈</span> 숨기기';
+  } else {
+    ansTag.classList.add('ans-hidden');
+    btn.innerHTML = '<span class="eye-icon">👁</span> 정답 보기';
+  }
+}
+function revealAll() {
+  document.querySelectorAll('.ans-tag').forEach(el => el.classList.remove('ans-hidden'));
+  document.querySelectorAll('.btn-reveal').forEach(btn => {
+    btn.innerHTML = '<span class="eye-icon">🙈</span> 숨기기';
+  });
+}
+function hideAll() {
+  document.querySelectorAll('.ans-tag').forEach(el => el.classList.add('ans-hidden'));
+  document.querySelectorAll('.btn-reveal').forEach(btn => {
+    btn.innerHTML = '<span class="eye-icon">👁</span> 정답 보기';
+  });
+}
+</script>
+</body>
+</html>
